@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术文档 - 认知异质性实验</title>
+    <meta name="description" content="认知异质性实验的技术实现、API文档和开发指南">
+    <meta name="keywords" content="技术文档, API文档, 开发指南, AI实验, 群体智能">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav {
+            background-color: var(--dark-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-container a:hover, .nav-container a.active {
+            background-color: var(--accent-purple);
+        }
+        
+        h1, h2, h3 {
+            color: var(--dark-blue);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            padding: 40px 0;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .code-block {
+            background: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .api-table th, .api-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .api-table th {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>技术文档</h1>
+            <p>认知异质性实验的技术实现和开发指南</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">首页</a>
+            <a href="experiment.html">实验介绍</a>
+            <a href="results.html">研究成果</a>
+            <a href="documentation.html" class="active">技术文档</a>
+            <a href="quickstart.html">快速开始</a>
+            <a href="download.html">下载安装</a>
+            <a href="team.html">团队介绍</a>
+            <a href="contact.html">联系方式</a>
+        </div>
+    </nav>
+    
+    <section>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+            
+            <div class="content-section">
+                <h2>系统架构</h2>
+                <p>认知异质性实验采用模块化设计，主要包含以下核心组件：</p>
+                
+                <h3>核心模块</h3>
+                <ul>
+                    <li><strong>Agent模块</strong>：智能体实现，包括OllamaAgent和CloudAgent</li>
+                    <li><strong>Ecosystem模块</strong>：群体生态系统管理</li>
+                    <li><strong>Task模块</strong>：任务定义和管理</li>
+                    <li><strong>Evaluation模块</strong>：评估系统实现</li>
+                    <li><strong>Evolution模块</strong>：演化机制实现</li>
+                </ul>
+                
+                <h3>技术栈</h3>
+                <ul>
+                    <li>Python 3.9+</li>
+                    <li>Ollama本地LLM集成</li>
+                    <li>NumPy/SciPy科学计算</li>
+                    <li>Poetry依赖管理</li>
+                    <li>ThreadPoolExecutor并发执行</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2>CloudAgent API</h2>
+                <p>CloudAgent是实验的核心组件，支持多种云服务提供商。</p>
+                
+                <h3>类定义</h3>
+                <div class="code-block">
+class CloudAgent(Agent):
+    def __init__(self, agent_id: str, config: Dict[str, Any]):
+        """
+        初始化CloudAgent
+        
+        Args:
+            agent_id: 智能体唯一标识
+            config: 配置字典，包含：
+                - service_type: 服务类型 ('openai', 'azure', 'aliyun'等)
+                - api_key: API密钥
+                - model_name: 模型名称
+                - endpoint: 服务端点URL
+                - temperature: 生成温度 (可选，默认0.7)
+                - max_tokens: 最大token数 (可选，默认1000)
+        """
+        pass
+    
+    def execute(self, task: Task) -> str:
+        """执行任务并返回响应"""
+        pass
+    
+    def replicate(self, new_agent_id: str) -> 'CloudAgent':
+        """复制智能体"""
+        pass
+                </div>
+                
+                <h3>配置参数</h3>
+                <table class="api-table">
+                    <thead>
+                        <tr>
+                            <th>参数</th>
+                            <th>类型</th>
+                            <th>必填</th>
+                            <th>默认值</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>service_type</td>
+                            <td>string</td>
+                            <td>是</td>
+                            <td>-</td>
+                            <td>云服务提供商类型</td>
+                        </tr>
+                        <tr>
+                            <td>api_key</td>
+                            <td>string</td>
+                            <td>是</td>
+                            <td>-</td>
+                            <td>API密钥</td>
+                        </tr>
+                        <tr>
+                            <td>model_name</td>
+                            <td>string</td>
+                            <td>是</td>
+                            <td>gpt-3.5-turbo</td>
+                            <td>模型名称</td>
+                        </tr>
+                        <tr>
+                            <td>endpoint</td>
+                            <td>string</td>
+                            <td>否</td>
+                            <td>根据服务类型自动设置</td>
+                            <td>服务端点URL</td>
+                        </tr>
+                        <tr>
+                            <td>temperature</td>
+                            <td>float</td>
+                            <td>否</td>
+                            <td>0.7</td>
+                            <td>生成温度</td>
+                        </tr>
+                        <tr>
+                            <td>max_tokens</td>
+                            <td>int</td>
+                            <td>否</td>
+                            <td>1000</td>
+                            <td>最大token数</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>支持的云服务</h3>
+                <ul>
+                    <li><strong>OpenAI</strong>：兼容OpenAI API的模型</li>
+                    <li><strong>Azure</strong>：Azure OpenAI服务</li>
+                    <li><strong>阿里云</strong>：阿里云DashScope</li>
+                    <li><strong>腾讯云</strong>：腾讯云HunYuan</li>
+                    <li><strong>百度云</strong>：百度云文心一言</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2>AgentFactory API</h2>
+                <p>AgentFactory提供统一的智能体创建接口。</p>
+                
+                <h3>类方法</h3>
+                <div class="code-block">
+class AgentFactory:
+    @staticmethod
+    def create_agent(agent_type: str, agent_id: str, config: Dict[str, Any]) -> Agent:
+        """创建智能体实例"""
+        pass
+    
+    @staticmethod
+    def create_critical_agent(agent_type: str, agent_id: str, model: str, **kwargs) -> Agent:
+        """创建批判型智能体"""
+        pass
+    
+    @staticmethod
+    def create_awakened_agent(agent_type: str, agent_id: str, model: str, **kwargs) -> Agent:
+        """创建觉醒型智能体"""
+        pass
+    
+    @staticmethod
+    def create_standard_agent(agent_type: str, agent_id: str, model: str, **kwargs) -> Agent:
+        """创建标准型智能体"""
+        pass
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>Ecosystem API</h2>
+                <p>Ecosystem管理智能体群体和演化过程。</p>
+                
+                <h3>类定义</h3>
+                <div class="code-block">
+@dataclass
+class Ecosystem:
+    agents: Dict[str, Agent] = field(default_factory=dict)
+    generation: int = 0
+    history: List[Dict[str, Any]] = field(default_factory=list)
+    use_ai_evaluator: bool = True
+    
+    def add_agent(self, agent: Agent) -> None:
+        """添加智能体到群体"""
+        pass
+    
+    def remove_agent(self, agent_id: str) -> None:
+        """从群体中移除智能体"""
+        pass
+    
+    def run_generation(self, task: Task) -> Dict[str, float]:
+        """运行一代实验"""
+        pass
+    
+    def evolve(self, scores: Dict[str, float]) -> None:
+        """演化群体"""
+        pass
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>部署配置</h2>
+                
+                <h3>环境要求</h3>
+                <ul>
+                    <li>Python 3.9或更高版本</li>
+                    <li>Poetry包管理器</li>
+                    <li>Ollama服务（可选，用于本地模型）</li>
+                    <li>云服务API密钥（用于CloudAgent）</li>
+                </ul>
+                
+                <h3>依赖安装</h3>
+                <div class="code-block">
+# 安装Poetry依赖
+poetry install
+
+# 或使用pip安装
+pip install -r requirements.txt
+                </div>
+                
+                <h3>配置文件</h3>
+                <p>项目配置文件位于<code>config/</code>目录下：</p>
+                <ul>
+                    <li><code>experiment_config.py</code>：实验参数配置</li>
+                    <li><code>role_definitions.py</code>：AI角色定义</li>
+                </ul>
+                
+                <h3>环境变量</h3>
+                <div class="code-block">
+# 云服务API密钥
+export OPENAI_API_KEY="your-openai-api-key"
+export AZURE_API_KEY="your-azure-api-key"
+export ALIYUN_API_KEY="your-aliyun-api-key"
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>认知异质性实验</h3>
+                    <p>探索AI群体智能的前沿研究项目</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>页面导航</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="experiment.html">实验介绍</a></li>
+                        <li><a href="results.html">研究成果</a></li>
+                        <li><a href="documentation.html">技术文档</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>实践指南</h3>
+                    <ul class="footer-links">
+                        <li><a href="quickstart.html">快速开始</a></li>
+                        <li><a href="download.html">下载安装</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>相关链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://agentpsy.com" target="_blank">AI人格实验室</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 认知异质性实验项目. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

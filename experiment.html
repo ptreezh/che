@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验介绍 - 认知异质性实验</title>
+    <meta name="description" content="深入了解认知异质性实验的设计原理、方法和实现细节">
+    <meta name="keywords" content="认知异质性, AI实验, 群体智能, 人工智能, 实验设计">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav {
+            background-color: var(--dark-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-container a:hover, .nav-container a.active {
+            background-color: var(--accent-purple);
+        }
+        
+        h1, h2, h3 {
+            color: var(--dark-blue);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            padding: 40px 0;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>认知异质性实验</h1>
+            <p>深入了解实验设计原理和实现方法</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">首页</a>
+            <a href="experiment.html" class="active">实验介绍</a>
+            <a href="results.html">研究成果</a>
+            <a href="documentation.html">技术文档</a>
+            <a href="quickstart.html">快速开始</a>
+            <a href="download.html">下载安装</a>
+            <a href="team.html">团队介绍</a>
+            <a href="contact.html">联系方式</a>
+        </div>
+    </nav>
+    
+    <section>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+            
+            <div class="content-section">
+                <h2>实验设计概述</h2>
+                <p>认知异质性实验旨在验证一个核心假设：异质性认知群体在解决复杂问题和识别幻觉方面具有显著优势。通过构建包含多种认知类型（标准型、批判型、觉醒型）的AI群体，我们验证了认知多样性对群体性能的积极影响。</p>
+                
+                <h3>实验目标</h3>
+                <ul>
+                    <li>验证认知异质性对群体智能性能的影响</li>
+                    <li>评估不同认知类型智能体在幻觉检测中的表现</li>
+                    <li>研究群体演化机制对性能提升的作用</li>
+                    <li>建立认知多样性与问题解决能力的量化关系</li>
+                </ul>
+                
+                <h3>核心概念</h3>
+                <p><strong>认知异质性</strong>是指在一个智能体群体中，不同成员具有不同的认知模式、思维框架和问题解决策略。这种多样性类似于人类团队中不同专业背景成员的组合，能够产生更全面、更创新的解决方案。</p>
+            </div>
+            
+            <div class="content-section">
+                <h2>智能体类型</h2>
+                
+                <h3>标准型智能体</h3>
+                <p>标准型智能体遵循指令直接提供全面答案，是群体中的基础执行单元。它们按照系统提示的要求完成任务，不进行额外的质疑或反思。</p>
+                <ul>
+                    <li>特点：服从性强，执行效率高</li>
+                    <li>作用：提供基础响应，作为群体演化起点</li>
+                    <li>局限：容易被错误前提误导</li>
+                </ul>
+                
+                <h3>批判型智能体</h3>
+                <p>批判型智能体具有细致分析事实准确性的能力，能够质疑错误前提并提供反驳证据。它们在群体中起到"质量控制"的作用。</p>
+                <ul>
+                    <li>特点：具有事实核查能力，善于发现问题</li>
+                    <li>作用：识别幻觉和错误信息</li>
+                    <li>优势：显著提升群体准确性</li>
+                </ul>
+                
+                <h3>觉醒型智能体</h3>
+                <p>觉醒型智能体持续反思和质疑既定"常识"，挑战系统偏见。它们在群体中起到"创新引擎"的作用。</p>
+                <ul>
+                    <li>特点：具有批判性思维，善于挑战权威</li>
+                    <li>作用：推动群体思维突破</li>
+                    <li>价值：增强群体创新能力</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2>实验流程</h2>
+                
+                <h3>初始化阶段</h3>
+                <ol>
+                    <li>构建包含不同认知类型智能体的异质性群体</li>
+                    <li>配置智能体参数（模型、温度、最大token数等）</li>
+                    <li>初始化评估系统和演化机制</li>
+                </ol>
+                
+                <h3>执行阶段</h3>
+                <ol>
+                    <li>群体针对包含错误前提的任务进行响应</li>
+                    <li>通过AI评估器对智能体响应进行评分</li>
+                    <li>记录每代的性能数据和群体状态</li>
+                </ol>
+                
+                <h3>演化阶段</h3>
+                <ol>
+                    <li>移除低分智能体</li>
+                    <li>复制高分智能体</li>
+                    <li>引入变异机制（参数调整、认知模式变化）</li>
+                    <li>维持群体多样性</li>
+                </ol>
+                
+                <h3>迭代阶段</h3>
+                <p>重复执行多代，观察群体性能演化趋势，分析认知多样性与性能的关系。</p>
+            </div>
+            
+            <div class="content-section">
+                <h2>技术实现</h2>
+                
+                <h3>CloudAgent架构</h3>
+                <p>我们创新性地实现了CloudAgent架构，支持多种云服务提供商：</p>
+                <ul>
+                    <li>OpenAI及兼容API</li>
+                    <li>Azure OpenAI服务</li>
+                    <li>阿里云DashScope</li>
+                    <li>腾讯云HunYuan</li>
+                    <li>百度云文心一言</li>
+                </ul>
+                <p>这一架构使实验摆脱了本地硬件依赖，能够灵活调用不同云服务提供商的模型。</p>
+                
+                <h3>评估系统</h3>
+                <p>通过AI评估器对智能体响应进行评分，评估维度包括：</p>
+                <ul>
+                    <li>幻觉识别能力</li>
+                    <li>响应准确性</li>
+                    <li>逻辑一致性</li>
+                    <li>创新性思维</li>
+                </ul>
+                
+                <h3>演化机制</h3>
+                <p>结合选择、复制、变异等机制，实现群体智能的持续优化：</p>
+                <ul>
+                    <li>选择机制：基于性能评分选择优秀个体</li>
+                    <li>复制机制：保留和传播优秀认知模式</li>
+                    <li>变异机制：引入认知多样性</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>认知异质性实验</h3>
+                    <p>探索AI群体智能的前沿研究项目</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>页面导航</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="experiment.html">实验介绍</a></li>
+                        <li><a href="results.html">研究成果</a></li>
+                        <li><a href="documentation.html">技术文档</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>实践指南</h3>
+                    <ul class="footer-links">
+                        <li><a href="quickstart.html">快速开始</a></li>
+                        <li><a href="download.html">下载安装</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>相关链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://agentpsy.com" target="_blank">AI人格实验室</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 认知异质性实验项目. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

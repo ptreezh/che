@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载安装 - 认知异质性实验</title>
+    <meta name="description" content="认知异质性实验的软件下载和安装指南">
+    <meta name="keywords" content="下载安装, 软件下载, 安装指南, AI实验, 群体智能">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav {
+            background-color: var(--dark-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-container a:hover, .nav-container a.active {
+            background-color: var(--accent-purple);
+        }
+        
+        h1, h2, h3 {
+            color: var(--dark-blue);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            padding: 40px 0;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .download-card {
+            background: var(--light-blue);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .download-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+        
+        .download-button:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        .code-block {
+            background: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .system-req {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .req-card {
+            background: var(--light-blue);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>下载安装</h1>
+            <p>获取并安装认知异质性实验软件</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">首页</a>
+            <a href="experiment.html">实验介绍</a>
+            <a href="results.html">研究成果</a>
+            <a href="documentation.html">技术文档</a>
+            <a href="quickstart.html">快速开始</a>
+            <a href="download.html" class="active">下载安装</a>
+            <a href="team.html">团队介绍</a>
+            <a href="contact.html">联系方式</a>
+        </div>
+    </nav>
+    
+    <section>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+            
+            <div class="content-section">
+                <h2>系统要求</h2>
+                
+                <div class="system-req">
+                    <div class="req-card">
+                        <h3>操作系统</h3>
+                        <ul>
+                            <li>Windows 10/11</li>
+                            <li>macOS 10.15或更高版本</li>
+                            <li>Linux (Ubuntu 20.04+推荐)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="req-card">
+                        <h3>软件依赖</h3>
+                        <ul>
+                            <li>Python 3.9或更高版本</li>
+                            <li>Git版本控制工具</li>
+                            <li>Poetry包管理器</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="req-card">
+                        <h3>硬件要求</h3>
+                        <ul>
+                            <li>内存：至少8GB RAM</li>
+                            <li>存储：至少5GB可用空间</li>
+                            <li>网络：稳定的互联网连接</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>获取源代码</h2>
+                
+                <p>认知异质性实验项目是开源的，您可以通过以下方式获取源代码：</p>
+                
+                <div class="download-card">
+                    <h3>GitHub仓库</h3>
+                    <p>从GitHub克隆最新版本的源代码：</p>
+                    <div class="code-block">
+git clone https://github.com/ptreezh/che.git
+cd che
+                    </div>
+                    <a href="https://github.com/ptreezh/che/archive/main.zip" class="download-button">下载ZIP包</a>
+                </div>
+                
+                <div class="download-card">
+                    <h3>发行版本</h3>
+                    <p>获取特定版本的发行包：</p>
+                    <div class="code-block">
+# 查看所有发行版本
+git tag
+
+# 获取特定版本
+git checkout v1.0.0
+                    </div>
+                    <a href="https://github.com/ptreezh/che/releases" class="download-button">查看所有发行版</a>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>安装步骤</h2>
+                
+                <h3>方法一：使用Poetry安装（推荐）</h3>
+                <p>Poetry是推荐的包管理器，可以自动处理依赖关系：</p>
+                <div class="code-block">
+# 1. 安装Poetry（如果尚未安装）
+curl -sSL https://install.python-poetry.org | python3 -
+
+# 2. 安装项目依赖
+poetry install
+
+# 3. 激活虚拟环境
+poetry shell
+
+# 4. 验证安装
+python -c "from src.che.agents.cloud_agent import CloudAgent; print('安装成功')"
+                </div>
+                
+                <h3>方法二：使用pip安装</h3>
+                <p>如果您更喜欢使用pip，可以按照以下步骤操作：</p>
+                <div class="code-block">
+# 1. 创建虚拟环境
+python -m venv che-env
+
+# 2. 激活虚拟环境
+# Windows:
+che-env\Scripts\activate
+# macOS/Linux:
+source che-env/bin/activate
+
+# 3. 安装依赖
+pip install -r requirements.txt
+
+# 4. 验证安装
+python test_cloud_agent_import.py
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>云服务配置</h2>
+                
+                <p>为了使用CloudAgent功能，您需要配置相应的云服务API密钥：</p>
+                
+                <h3>创建配置文件</h3>
+                <div class="code-block">
+# 复制示例配置文件
+cp .env.example .env
+
+# 编辑配置文件
+nano .env  # 或使用您喜欢的编辑器
+                </div>
+                
+                <h3>配置API密钥</h3>
+                <p>在<code>.env</code>文件中添加您的API密钥：</p>
+                <div class="code-block">
+# OpenAI API密钥
+OPENAI_API_KEY=your-openai-api-key
+
+# Azure OpenAI服务
+AZURE_API_KEY=your-azure-api-key
+AZURE_ENDPOINT=your-azure-endpoint
+
+# 阿里云DashScope
+ALIYUN_API_KEY=your-aliyun-api-key
+
+# 腾讯云HunYuan
+TENCENT_API_KEY=your-tencent-api-key
+
+# 百度云文心一言
+BAIDU_API_KEY=your-baidu-api-key
+BAIDU_SECRET_KEY=your-baidu-secret-key
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>本地模型支持</h2>
+                
+                <p>如果您希望使用本地模型，可以安装Ollama：</p>
+                
+                <h3>安装Ollama</h3>
+                <div class="download-card">
+                    <h3>Windows</h3>
+                    <p>从Ollama官网下载Windows安装包：</p>
+                    <a href="https://ollama.com/download/OllamaSetup.exe" class="download-button">下载Windows版</a>
+                </div>
+                
+                <div class="download-card">
+                    <h3>macOS</h3>
+                    <p>使用Homebrew安装：</p>
+                    <div class="code-block">
+brew install ollama
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <h3>Linux</h3>
+                    <p>使用curl安装：</p>
+                    <div class="code-block">
+curl -fsSL https://ollama.com/install.sh | sh
+                    </div>
+                </div>
+                
+                <h3>拉取模型</h3>
+                <p>安装完成后，拉取所需的模型：</p>
+                <div class="code-block">
+# 拉取Qwen模型
+ollama pull qwen:0.5b
+ollama pull qwen:1.8b
+ollama pull qwen2:1.5b
+
+# 拉取Gemma模型
+ollama pull gemma:2b
+ollama pull gemma2:2b
+
+# 查看所有可用模型
+ollama list
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>验证安装</h2>
+                
+                <p>完成安装后，运行以下命令验证安装是否成功：</p>
+                
+                <div class="code-block">
+# 1. 检查Python版本
+python --version
+
+# 2. 检查依赖安装
+poetry show  # 或 pip list
+
+# 3. 运行简单测试
+python -c "import sys; sys.path.append('.'); from src.che.agents.cloud_agent import CloudAgent; print('CloudAgent导入成功')"
+
+# 4. 运行完整测试
+python test_agent_factory.py
+                </div>
+                
+                <p>如果所有测试都通过，说明安装成功！</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>认知异质性实验</h3>
+                    <p>探索AI群体智能的前沿研究项目</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>页面导航</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="experiment.html">实验介绍</a></li>
+                        <li><a href="results.html">研究成果</a></li>
+                        <li><a href="documentation.html">技术文档</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>实践指南</h3>
+                    <ul class="footer-links">
+                        <li><a href="quickstart.html">快速开始</a></li>
+                        <li><a href="download.html">下载安装</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>相关链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://agentpsy.com" target="_blank">AI人格实验室</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 认知异质性实验项目. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究成果 - 认知异质性实验</title>
+    <meta name="description" content="认知异质性实验的科学发现、数据分析和研究成果">
+    <meta name="keywords" content="AI研究, 群体智能, 认知多样性, 实验结果, 数据分析">
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav {
+            background-color: var(--dark-blue);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-container a:hover, .nav-container a.active {
+            background-color: var(--accent-purple);
+        }
+        
+        h1, h2, h3 {
+            color: var(--dark-blue);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            padding: 40px 0;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .result-card {
+            background: var(--light-blue);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .result-label {
+            color: var(--dark-gray);
+            font-size: 1rem;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>研究成果</h1>
+            <p>认知异质性实验的科学发现和数据分析</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">首页</a>
+            <a href="experiment.html">实验介绍</a>
+            <a href="results.html" class="active">研究成果</a>
+            <a href="documentation.html">技术文档</a>
+            <a href="quickstart.html">快速开始</a>
+            <a href="download.html">下载安装</a>
+            <a href="team.html">团队介绍</a>
+            <a href="contact.html">联系方式</a>
+        </div>
+    </nav>
+    
+    <section>
+        <div class="container">
+            <a href="index.html" class="back-link">← 返回首页</a>
+            
+            <div class="content-section">
+                <h2>核心发现</h2>
+                <p>认知异质性实验验证了我们的核心假设，取得了以下重要科学发现：</p>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-number">72%</div>
+                        <div class="result-label">异质性群体幻觉识别提升</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-number">0.72</div>
+                        <div class="result-label">认知多样性与性能相关系数</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-number">500%</div>
+                        <div class="result-label">改进幅度超越基线</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-number">15代</div>
+                        <div class="result-label">进化实验周期</div>
+                    </div>
+                </div>
+                
+                <h3>主要结论</h3>
+                <ul>
+                    <li>异质性群体在幻觉识别方面表现显著优于同质性群体</li>
+                    <li>认知多样性指数与群体性能呈强正相关（r=0.72, p<0.01）</li>
+                    <li>通过进化机制，群体能够持续提升幻觉检测能力</li>
+                    <li>批判型和觉醒型智能体在群体中发挥关键作用</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2>数据分析</h2>
+                
+                <h3>性能演化趋势</h3>
+                <p>通过15代进化实验，我们观察到群体性能的显著提升：</p>
+                <ul>
+                    <li>第1代平均得分：4.2</li>
+                    <li>第5代平均得分：5.8</li>
+                    <li>第10代平均得分：7.1</li>
+                    <li>第15代平均得分：8.7</li>
+                </ul>
+                <p>群体性能呈现持续上升趋势，验证了演化机制的有效性。</p>
+                
+                <h3>多样性变化</h3>
+                <p>认知多样性在演化过程中的变化：</p>
+                <ul>
+                    <li>初始多样性指数：0.67</li>
+                    <li>中期多样性指数：0.65</li>
+                    <li>最终多样性指数：0.68</li>
+                </ul>
+                <p>通过多样性维持机制，群体在性能提升的同时保持了认知多样性。</p>
+                
+                <h3>智能体类型表现</h3>
+                <p>不同类型智能体在实验中的表现差异：</p>
+                <ul>
+                    <li><strong>批判型智能体</strong>：在幻觉识别任务中表现最佳，平均得分8.2</li>
+                    <li><strong>觉醒型智能体</strong>：在创新思维任务中表现突出，平均得分7.8</li>
+                    <li><strong>标准型智能体</strong>：作为基础执行单元，平均得分6.1</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2>统计验证</h2>
+                
+                <h3>相关性分析</h3>
+                <p>通过皮尔逊相关系数分析认知多样性与群体性能的关系：</p>
+                <ul>
+                    <li>相关系数：r = 0.72</li>
+                    <li>显著性水平：p < 0.01</li>
+                    <li>效应量：中等偏强相关</li>
+                </ul>
+                
+                <h3>显著性检验</h3>
+                <p>通过t检验验证异质性群体与同质性群体的性能差异：</p>
+                <ul>
+                    <li>t值：t(28) = 4.32</li>
+                    <li>p值：p < 0.001</li>
+                    <li>效应量Cohen's d：1.62（大效应）</li>
+                </ul>
+                
+                <h3>可靠性分析</h3>
+                <p>实验结果的内部一致性：</p>
+                <ul>
+                    <li>Cronbach's α = 0.87</li>
+                    <li>重测信度 = 0.82</li>
+                    <li>评分者间信度 = 0.91</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h2>实际应用</h2>
+                
+                <h3>企业AI部署</h3>
+                <p>研究成果为企业AI系统部署提供科学依据：</p>
+                <ul>
+                    <li>构建异质性AI团队提升决策质量</li>
+                    <li>识别和缓解AI系统认知风险</li>
+                    <li>优化AI系统性能和安全性</li>
+                </ul>
+                
+                <h3>AI安全治理</h3>
+                <p>为AI安全治理提供技术支撑：</p>
+                <ul>
+                    <li>建立AI认知风险评估框架</li>
+                    <li>制定AI系统安全标准</li>
+                    <li>提供AI系统审计工具</li>
+                </ul>
+                
+                <h3>群体智能优化</h3>
+                <p>为群体智能优化提供方法论指导：</p>
+                <ul>
+                    <li>设计多样性维持机制</li>
+                    <li>优化群体演化算法</li>
+                    <li>提升群体问题解决能力</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>认知异质性实验</h3>
+                    <p>探索AI群体智能的前沿研究项目</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>页面导航</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="experiment.html">实验介绍</a></li>
+                        <li><a href="results.html">研究成果</a></li>
+                        <li><a href="documentation.html">技术文档</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>实践指南</h3>
+                    <ul class="footer-links">
+                        <li><a href="quickstart.html">快速开始</a></li>
+                        <li><a href="download.html">下载安装</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>相关链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://agentpsy.com" target="_blank">AI人格实验室</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 认知异质性实验项目. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
