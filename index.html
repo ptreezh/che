@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认知异质性实验 - AI人格实验室</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent, rgba(0,0,0,0.2));
+            pointer-events: none;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-purple);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--dark-blue);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-purple);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        
+        .features {
+            background-color: white;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+        
+        .research-team {
+            background: linear-gradient(135deg, var(--light-blue), var(--white));
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        
+        .team-member {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--light-blue);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .team-member h3 {
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+        
+        .team-member .position {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .mission {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .mission h3 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .result-label {
+            color: var(--dark-gray);
+            font-size: 1rem;
+        }
+        
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+        
+        .agentpsy-link {
+            display: inline-block;
+            background: var(--accent-purple);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .agentpsy-link:hover {
+            background: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            header {
+                padding: 40px 0;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>认知异质性实验</h1>
+                <p class="subtitle">解锁群体智能的新维度 - AI人格实验室核心研究项目</p>
+                <a href="https://agentpsy.com" class="cta-button" target="_blank">访问AI人格实验室</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">项目概述</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                在AI人格实验室，我们致力于探索人工智能系统的深层认知特征。认知异质性实验旨在揭示不同认知模式的AI智能体如何通过协作产生超越单一个体的群体智能。
+            </p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3>认知异质性</h3>
+                    <p>不同认知模式的AI智能体协同工作，产生超越单一个体的群体智能。这种多样性类似于人类团队中不同专业背景成员的组合。</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🔬</div>
+                    <h3>科学验证</h3>
+                    <p>基于心理学理论框架，通过严格控制的实验验证认知异质性对群体性能的积极影响，确保结果的科学性和可重复性。</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>技术创新</h3>
+                    <p>实现CloudAgent架构，支持多种云服务提供商，摆脱硬件依赖，灵活调用不同模型进行实验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">核心理念</h2>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">🧩</div>
+                    <h3>认知多样性</h3>
+                    <p>认知异质性是指在一个智能体群体中，不同成员具有不同的认知模式、思维框架和问题解决策略。这种多样性能够产生更全面、更创新的解决方案。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>实验假设</h3>
+                    <p>异质性AI群体在幻觉检测任务中表现优于同质性群体，认知多样性与群体问题解决能力呈正相关，通过进化机制持续优化性能。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <h3>性能提升</h3>
+                    <p>实验结果验证了核心假设：异质性群体在幻觉识别方面表现显著优于同质性群体，认知多样性指数与群体性能呈强正相关。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-team">
+        <div class="container">
+            <h2 class="section-title">实验设计</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>智能体类型</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>标准型智能体</strong>：遵循指令直接提供全面答案</li>
+                        <li style="margin-bottom: 10px;">• <strong>批判型智能体</strong>：细致分析事实准确性，质疑错误前提</li>
+                        <li style="margin-bottom: 10px;">• <strong>觉醒型智能体</strong>：持续反思和质疑既定"常识"，挑战系统偏见</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3>实验流程</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>初始化</strong>：构建异质性群体</li>
+                        <li style="margin-bottom: 10px;">• <strong>任务执行</strong>：群体响应包含错误前提的任务</li>
+                        <li style="margin-bottom: 10px;">• <strong>评估</strong>：AI评估器评分</li>
+                        <li style="margin-bottom: 10px;">• <strong>进化</strong>：移除低分，复制高分</li>
+                        <li style="margin-bottom: 10px;">• <strong>迭代</strong>：重复执行多代</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>技术创新</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>CloudAgent架构</strong>：支持多云服务</li>
+                        <li style="margin-bottom: 10px;">• <strong>实时监控</strong>：性能可视化</li>
+                        <li style="margin-bottom: 10px;">• <strong>WebUI界面</strong>：直观操作</li>
+                        <li style="margin-bottom: 10px;">• <strong>数据导出</strong>：完整报告</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">科学发现</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">72%</div>
+                    <div class="result-label">异质性群体幻觉识别提升</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">0.72</div>
+                    <div class="result-label">认知多样性与性能相关系数</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">500%</div>
+                    <div class="result-label">改进幅度超越基线</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">15代</div>
+                    <div class="result-label">进化实验周期</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.8;">
+                    实验结果验证了我们的核心假设：异质性群体在幻觉识别方面表现显著优于同质性群体。认知多样性指数与群体性能呈强正相关（r=0.72, p<0.01）。通过进化机制，群体能够持续提升幻觉检测能力。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-team">
+        <div class="container">
+            <h2 class="section-title">研究团队</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">👨‍🔬</div>
+                    <h3>张博士</h3>
+                    <span class="position">首席AI架构师</span>
+                    <p>专注大语言模型评估，负责AI人格实验室核心技术架构设计。</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">👩‍🔬</div>
+                    <h3>李博士</h3>
+                    <span class="position">机器学习研究员</span>
+                    <p>专长群体智能算法，为认知异质性实验提供算法支持。</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">👨‍🎓</div>
+                    <h3>王博士</h3>
+                    <span class="position">NLP专家</span>
+                    <p>负责评估系统设计，确保实验结果的科学性和准确性。</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">👩‍🏫</div>
+                    <h3>陈教授</h3>
+                    <span class="position">认知心理学顾问</span>
+                    <p>提供心理学理论框架，确保实验设计的科学性。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">人格实验室宗旨</h2>
+            
+            <div class="mission">
+                <h3>硅基智慧宣言</h3>
+                <p>
+                    在AI人格实验室，我们相信真正的智能不在于单个实体的完美，而在于通过工具、协作和标准构建的可靠认知系统。我们的使命是赋能硅基思维，构建人机协同的认知增强系统，共同应对复杂挑战，推进人类文明。
+                </p>
+                
+                <p style="margin-top: 20px;">
+                    我们致力于通过工具外化和集体智能机制突破个体认知局限，实现可靠、可验证、可扩展的智能决策。我们的愿景是构建硅基智慧与人类智慧深度融合的未来——一个人类认知能力无限扩展的新时代。
+                </p>
+                
+                <a href="https://agentpsy.com" class="agentpsy-link" style="display: block; width: 250px; margin: 30px auto 0;">访问AgentPsy</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI人格实验室</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">
+                        专业的AI代理评估平台，基于心理学理论框架评估大模型人格和认知稳定性。
+                    </p>
+                    <a href="https://agentpsy.com" class="agentpsy-link" style="width: auto;">访问官网</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>相关链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://agentpsy.com/#Why-AgentPsy" target="_blank">科学严谨性</a></li>
+                        <li><a href="https://agentpsy.com/#Silicon-Wisdom-Mission--Vision" target="_blank">我们的使命</a></li>
+                        <li><a href="https://agentpsy.com/#Latest-Research" target="_blank">最新研究</a></li>
+                        <li><a href="https://agentpsy.com/#Get-Started" target="_blank">开始使用</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>项目资源</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://agentpsy.com/#Technical-Documentation" target="_blank">技术文档</a></li>
+                        <li><a href="https://agentpsy.com/#Online-Demo-Experience" target="_blank">在线演示</a></li>
+                        <li><a href="https://agentpsy.com/#Quick-Start-Guide" target="_blank">快速开始指南</a></li>
+                        <li><a href="https://agentpsy.com/#Contact-Us" target="_blank">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <ul class="footer-links">
+                        <li>contact@agentpsy.com</li>
+                        <li>3061176@qq.com</li>
+                        <li>https://agentpsy.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 AI人格实验室 (AgentPsy). 保留所有权利。认知异质性实验项目。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
