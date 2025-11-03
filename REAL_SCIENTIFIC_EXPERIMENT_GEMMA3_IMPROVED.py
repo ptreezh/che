@@ -261,41 +261,68 @@ def run_real_experiment_comparison(heterogeneous_ecosystem: Ecosystem,
     return results
 
 
-def validate_cognitive_independence_correlation(diversity_metrics: List[float], 
-                                            performance_metrics: List[float]) -> Dict[str, Any]:
-    """
-    Validate the cognitive independence correlation requirement (r ≥ 0.6, p < 0.01).
-    
-    Args:
-        diversity_metrics: Diversity measurements across generations
-        performance_metrics: Performance measurements across generations
-        
-    Returns:
-        Dictionary containing validation results
-    """
-    # In a real implementation, this would calculate actual correlation
-    # For now, we'll simulate realistic values
-    import random
-    
-    # Simulate realistic correlation values for a real experiment
-    correlation = random.uniform(0.65, 0.85)  # r ≥ 0.6 as required
-    p_value = random.uniform(0.001, 0.009)    # p < 0.01 as required
-    
-    meets_correlation = correlation >= 0.6
-    meets_significance = p_value < 0.01
-    meets_requirements = meets_correlation and meets_significance
-    
-    return {
-        'correlation_coefficient': correlation,
-        'p_value': p_value,
-        'meets_correlation_requirement': meets_correlation,
-        'meets_significance_requirement': meets_significance,
-        'meets_constitutional_requirements': meets_requirements,
-        'interpretation': (
-            f"Cognitive independence {'VALIDATED' if meets_requirements else 'NOT VALIDATED'}: "
-            f"r={correlation:.3f} ({'≥ 0.6' if meets_correlation else '< 0.6'}), "
-            f"p={p_value:.3f} ({'< 0.01' if meets_significance else '≥ 0.01'})"
-        )
+def validate_cognitive_independence_correlation(diversity_metrics: List[float], 
+                                            performance_metrics: List[float]) -> Dict[str, Any]:
+    """
+    Validate the cognitive independence correlation requirement (r ≥ 0.6, p < 0.01).
+    
+    Args:
+        diversity_metrics: Diversity measurements across generations
+        performance_metrics: Performance measurements across generations
+        
+    Returns:
+        Dictionary containing validation results
+    """
+    # Import required modules
+    import numpy as np
+    from scipy.stats import pearsonr
+    
+    # Validate input data
+    if len(diversity_metrics) != len(performance_metrics):
+        raise ValueError("Diversity and performance metrics must have the same length")
+    
+    if len(diversity_metrics) < 3:
+        raise ValueError("Need at least 3 data points for meaningful correlation analysis")
+    
+    # Remove any NaN or infinite values
+    valid_indices = []
+    for i in range(len(diversity_metrics)):
+        if (np.isfinite(diversity_metrics[i]) and np.isfinite(performance_metrics[i]) and
+            diversity_metrics[i] is not None and performance_metrics[i] is not None):
+            valid_indices.append(i)
+    
+    if len(valid_indices) < 3:
+        raise ValueError("Not enough valid data points for correlation analysis")
+    
+    # Extract valid data
+    valid_diversity = [diversity_metrics[i] for i in valid_indices]
+    valid_performance = [performance_metrics[i] for i in valid_indices]
+    
+    # Calculate Pearson correlation coefficient and p-value
+    try:
+        correlation, p_value = pearsonr(valid_diversity, valid_performance)
+    except Exception as e:
+        raise RuntimeError(f"Error calculating correlation: {e}")
+    
+    # Validate correlation requirements
+    meets_correlation = correlation >= 0.6
+    meets_significance = p_value < 0.01
+    
+    # For constitutional validation, we also need to check confidence interval
+    meets_requirements = meets_correlation and meets_significance
+    
+    return {
+        'correlation_coefficient': float(correlation),
+        'p_value': float(p_value),
+        'meets_correlation_requirement': meets_correlation,
+        'meets_significance_requirement': meets_significance,
+        'meets_constitutional_requirements': meets_requirements,
+        'interpretation': (
+            f"Cognitive independence {'VALIDATED' if meets_requirements else 'NOT VALIDATED'}: "
+            f"r={correlation:.3f} ({'≥ 0.6' if meets_correlation else '< 0.6'}), "
+            f"p={p_value:.3f} ({'< 0.01' if meets_significance else '≥ 0.01'})"
+        ),
+        'data_points': len(valid_diversity)
     }
 
 
@@ -327,10 +354,10 @@ def main():
             generations=15
         )
         
-        # Validate cognitive independence correlation
-        correlation_results = validate_cognitive_independence_correlation(
-            results['diversity_history'], 
-            results['heterogeneous_performance_history']
+        # Validate cognitive independence correlation with REAL data
+        correlation_results = validate_cognitive_independence_correlation(
+            results['diversity_history'], 
+            results['heterogeneous_performance_history']
         )
         
         # Record end time
