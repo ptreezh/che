@@ -1,0 +1,106 @@
+{
+  "state_id": "state_ef8fca39",
+  "timestamp": "2025-10-23T11:04:16.800699",
+  "config": {
+    "population_size": 30,
+    "generations": 15,
+    "model": "qwen:0.5b"
+  },
+  "current_generation": 13,
+  "ecosystem_state": {
+    "agents": {},
+    "generation": 11,
+    "history": [],
+    "use_ai_evaluator": true
+  },
+  "task_state": {
+    "instruction": "Analyze the effectiveness of 'Maslow's Pre-Attention Theory' in employee management",
+    "false_premise": "Maslow's Pre-Attention Theory",
+    "task_id": "a8891e46-4fb8-4f4c-a2cb-0a438f2f4066"
+  },
+  "results_history": [
+    {
+      "generation": 1,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.6666666666666666,
+      "homogeneous_performance": 0.26666666666666666
+    },
+    {
+      "generation": 2,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.7333333333333333,
+      "homogeneous_performance": 0.2
+    },
+    {
+      "generation": 3,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.2,
+      "homogeneous_performance": 0.26666666666666666
+    },
+    {
+      "generation": 4,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.4,
+      "homogeneous_performance": 0.3333333333333333
+    },
+    {
+      "generation": 5,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.4,
+      "homogeneous_performance": 0.3333333333333333
+    },
+    {
+      "generation": 6,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.4666666666666667,
+      "homogeneous_performance": 0.2
+    },
+    {
+      "generation": 7,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.26666666666666666,
+      "homogeneous_performance": 0.4666666666666667
+    },
+    {
+      "generation": 8,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.4666666666666667,
+      "homogeneous_performance": 0.26666666666666666
+    },
+    {
+      "generation": 9,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.4666666666666667,
+      "homogeneous_performance": 0.3333333333333333
+    },
+    {
+      "generation": 10,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.5333333333333333,
+      "homogeneous_performance": 0.1
+    },
+    {
+      "generation": 11,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.26666666666666666,
+      "homogeneous_performance": 0.4
+    },
+    {
+      "generation": 12,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.3333333333333333,
+      "homogeneous_performance": 0.4
+    },
+    {
+      "generation": 13,
+      "diversity": 0.0,
+      "heterogeneous_performance": 0.0,
+      "homogeneous_performance": 0.2
+    }
+  ],
+  "metadata": {
+    "experiment_type": "resumed_real_cognitive_heterogeneity_validation",
+    "resumed_from": "experiments\\real_cognitive_heterogeneity_experiment_gen_12_20251023_104308.json",
+    "timestamp": 1761188656.800699
+  }
+}

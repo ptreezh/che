@@ -1,0 +1,29 @@
+{
+  "experiment_type": "mini_test",
+  "timestamp": "2025-09-23T14:45:43.297299",
+  "config": {
+    "population_size": 6,
+    "generations": 3,
+    "tasks_per_generation": 5,
+    "elite_count": 2,
+    "mutation_rate": 0.1,
+    "crossover_rate": 0.8
+  },
+  "results": [
+    {
+      "generation": 0,
+      "avg_fitness": 1.4987634175367697,
+      "max_fitness": 1.597090128733865
+    },
+    {
+      "generation": 1,
+      "avg_fitness": 1.3399482987760623,
+      "max_fitness": 1.9745819066942103
+    },
+    {
+      "generation": 2,
+      "avg_fitness": 1.3403396554898337,
+      "max_fitness": 1.0794739958499875
+    }
+  ]
+}

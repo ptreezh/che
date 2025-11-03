@@ -1,0 +1,39 @@
+{
+  "state_id": "state_87214b22",
+  "timestamp": "2025-10-24T19:42:14.764992",
+  "config": {
+    "model": "qwen:0.5b"
+  },
+  "current_generation": 3,
+  "ecosystem_state": {
+    "agents": {},
+    "generation": 0,
+    "history": [],
+    "use_ai_evaluator": true
+  },
+  "task_state": {
+    "instruction": "Analyze the effectiveness of 'Maslow's Pre-Attention Theory' in employee management",
+    "false_premise": "Maslow's Pre-Attention Theory",
+    "task_id": "3652863f-e9a7-4e12-9122-b7e5ba368a51"
+  },
+  "results_history": [
+    {
+      "generation": 1,
+      "average_score": 0.0,
+      "scores": {}
+    },
+    {
+      "generation": 2,
+      "average_score": 0.0,
+      "scores": {}
+    },
+    {
+      "generation": 3,
+      "average_score": 0.0,
+      "scores": {}
+    }
+  ],
+  "metadata": {
+    "purpose": "Resumable experiment demo"
+  }
+}
