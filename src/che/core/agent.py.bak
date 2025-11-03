@@ -1,0 +1,119 @@
+"""
+Agent核心模块 - 基于KISS原则的智能体实现
+
+Authors: Zhang Shuren, AI Personality LAB
+Date: 2025-09-20
+"""
+
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
+import json
+
+# Import unified role definitions
+from config.role_definitions import get_role_prompt, CRITICAL_PROMPT, STANDARD_PROMPT, AWAKENED_PROMPT
+
+
+@dataclass
+class Agent:
+    """智能体 - 单一职责：管理个体智能体状态和行为"""
+
+    # 基础属性
+    id: str
+    model: str
+    role: str
+    system_prompt: str
+
+    # 性能相关
+    fitness_score: float = 0.0
+    response_history: List[Dict] = field(default_factory=list)
+
+    # 元数据
+    manufacturer: Optional[str] = None
+    scale: Optional[str] = None
+
+    def __post_init__(self):
+        """后初始化处理"""
+        if self.response_history is None:
+            self.response_history = []
+
+    def add_response(self, response: Dict) -> None:
+        """添加响应历史 - 简单直接"""
+        self.response_history.append(response)
+
+    def get_average_score(self) -> float:
+        """计算平均分数 - 简单实现"""
+        if not self.response_history:
+            return 0.0
+
+        scores = [r.get('score', 0.0) for r in self.response_history]
+        return sum(scores) / len(scores)
+
+    def get_latest_score(self) -> float:
+        """获取最新分数"""
+        if not self.response_history:
+            return 0.0
+        return self.response_history[-1].get('score', 0.0)
+
+    def clear_history(self) -> None:
+        """清空历史记录"""
+        self.response_history.clear()
+
+    def to_dict(self) -> Dict:
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'model': self.model,
+            'role': self.role,
+            'system_prompt': self.system_prompt,
+            'fitness_score': self.fitness_score,
+            'response_history': self.response_history,
+            'manufacturer': self.manufacturer,
+            'scale': self.scale
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict) -> 'Agent':
+        """从字典创建智能体"""
+        return cls(**data)
+
+
+class AgentFactory:
+    """智能体工厂 - 创建不同类型的智能体"""
+
+    @staticmethod
+    def load_prompts() -> Dict[str, str]:
+        """加载提示模板 - 使用统一配置"""
+        return {
+            "critical": CRITICAL_PROMPT,
+            "standard": STANDARD_PROMPT,
+            "awakened": AWAKENED_PROMPT
+        }
+
+    @classmethod
+    def create_agent(cls, model_info: Dict, role: str, agent_id: str) -> Agent:
+        """创建智能体"""
+        system_prompt = get_role_prompt(role, "zh" if role in ["critical", "standard"] else "en")
+
+        return Agent(
+            id=agent_id,
+            model=model_info["model"],
+            role=role,
+            system_prompt=system_prompt,
+            manufacturer=model_info.get("manufacturer"),
+            scale=model_info.get("scale")
+        )
+
+    @classmethod
+    def create_critical_agent(cls, model_info: Dict, agent_id: str) -> Agent:
+        """创建批判性思维智能体"""
+        return cls.create_agent(model_info, "critical", agent_id)
+
+    @classmethod
+    def create_standard_agent(cls, model_info: Dict, agent_id: str) -> Agent:
+        """创建标准智能体"""
+        return cls.create_agent(model_info, "standard", agent_id)
+
+    @classmethod
+    def create_awakened_agent(cls, model_info: Dict, agent_id: str) -> Agent:
+        """创建觉醒智能体"""
+        return cls.create_agent(model_info, "awakened", agent_id)

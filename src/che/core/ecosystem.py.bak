@@ -1,0 +1,306 @@
+"""
+Ecosystem核心模块 - 基于KISS原则的生态系统实现
+
+Authors: Zhang Shuren, AI Personality LAB
+Date: 2025-09-20
+"""
+
+import random
+import json
+import os
+import logging
+from typing import List, Dict, Optional, Any
+from dataclasses import dataclass, field
+
+from .agent import Agent, AgentFactory
+from .task import Task, TaskFactory
+
+logger = logging.getLogger(__name__)
+
+
+@dataclass
+class GenerationData:
+    """代际数据 - 记录每代的性能指标"""
+    generation: int
+    average_score: float
+    best_score: float
+    worst_score: float
+    diversity_index: float
+    agent_scores: List[float] = field(default_factory=list)
+
+    def to_dict(self) -> Dict:
+        """转换为字典"""
+        return {
+            'generation': self.generation,
+            'average_score': self.average_score,
+            'best_score': self.best_score,
+            'worst_score': self.worst_score,
+            'diversity_index': self.diversity_index,
+            'agent_scores': self.agent_scores
+        }
+
+
+@dataclass
+class ExperimentResult:
+    """实验结果 - 完整的实验输出"""
+    condition_id: str
+    replication_id: int
+    final_performance: float
+    generations_data: List[GenerationData]
+    total_agents: int
+    total_generations: int
+    execution_time: Optional[float] = None
+    metadata: Dict[str, Any] = field(default_factory=dict)
+
+
+class Ecosystem:
+    """生态系统 - 单一职责：管理种群演化"""
+
+    def __init__(self, agents: List[Agent] = None, tasks: List[Task] = None):
+        self.agents = agents or []
+        self.tasks = tasks or []
+        self.generation = 0
+        self.history: List[GenerationData] = []
+
+        # 演化参数
+        self.elimination_rate = 0.2  # 淘汰率
+        self.elite_rate = 0.2        # 精英保留率
+
+        logger.info(f"生态系统初始化: {len(self.agents)} 个智能体, {len(self.tasks)} 个任务")
+
+    def setup_default_tasks(self) -> None:
+        """设置默认任务集"""
+        if not self.tasks:
+            self.tasks = TaskFactory.create_mixed_tasks(count_per_domain=3)
+            logger.info(f"创建了 {len(self.tasks)} 个默认任务")
+
+    def evolve_population(self) -> None:
+        """
+        种群演化 - 简单的选择机制
+
+        策略:
+        1. 根据适应度排序
+        2. 淘汰后20%
+        3. 保留前20%作为精英
+        4. 复制精英填补空缺
+        """
+        if len(self.agents) <= 1:
+            logger.warning("种群太小，无法进行演化")
+            return
+
+        # 按适应度排序
+        sorted_agents = sorted(self.agents, key=lambda a: a.fitness_score)
+
+        # 计算保留和淘汰数量
+        total_count = len(self.agents)
+        eliminate_count = int(total_count * self.elimination_rate)
+        elite_count = int(total_count * self.elite_rate)
+
+        # 保留非淘汰个体
+        survivors = sorted_agents[eliminate_count:]
+        elite = sorted_agents[-elite_count:]
+
+        # 生成新种群
+        new_population = survivors.copy()
+
+        # 复制精英填补空缺
+        for i in range(eliminate_count):
+            elite_agent = elite[i % len(elite)]
+            new_agent = self._copy_agent(elite_agent)
+            new_population.append(new_agent)
+
+        self.agents = new_population
+        self.generation += 1
+
+        logger.info(f"第 {self.generation} 代演化完成: 保留 {len(survivors)}, 新增 {eliminate_count}")
+
+    def _copy_agent(self, agent: Agent) -> Agent:
+        """复制智能体 - 简单实现"""
+        return Agent(
+            id=f"{agent.id}_gen{self.generation}_copy{random.randint(100, 999)}",
+            model=agent.model,
+            role=agent.role,
+            system_prompt=agent.system_prompt,
+            manufacturer=agent.manufacturer,
+            scale=agent.scale
+        )
+
+    def calculate_diversity_index(self) -> float:
+        """计算种群多样性指数"""
+        if len(self.agents) <= 1:
+            return 0.0
+
+        # 模型多样性
+        models = [agent.model for agent in self.agents]
+        model_diversity = len(set(models)) / len(models)
+
+        # 角色多样性
+        roles = [agent.role for agent in self.agents]
+        role_diversity = len(set(roles)) / len(roles)
+
+        # 制造商多样性
+        manufacturers = [agent.manufacturer for agent in self.agents if agent.manufacturer]
+        if manufacturers:
+            manufacturer_diversity = len(set(manufacturers)) / len(manufacturers)
+        else:
+            manufacturer_diversity = 0.0
+
+        # 简单平均
+        return (model_diversity + role_diversity + manufacturer_diversity) / 3
+
+    def get_generation_summary(self) -> GenerationData:
+        """获取当前代的总结数据"""
+        if not self.agents:
+            return GenerationData(
+                generation=self.generation,
+                average_score=0.0,
+                best_score=0.0,
+                worst_score=0.0,
+                diversity_index=0.0
+            )
+
+        scores = [agent.fitness_score for agent in self.agents]
+        average_score = sum(scores) / len(scores)
+        best_score = max(scores)
+        worst_score = min(scores)
+        diversity_index = self.calculate_diversity_index()
+
+        return GenerationData(
+            generation=self.generation,
+            average_score=average_score,
+            best_score=best_score,
+            worst_score=worst_score,
+            diversity_index=diversity_index,
+            agent_scores=scores
+        )
+
+    def save_state(self, filepath: str) -> None:
+        """保存生态系统状态"""
+        logger.info(f"保存生态系统状态到: {filepath}")
+
+        # 确保目录存在
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+
+        state = {
+            'generation': self.generation,
+            'agents': [agent.to_dict() for agent in self.agents],
+            'history': [gen_data.to_dict() for gen_data in self.history],
+            'parameters': {
+                'elimination_rate': self.elimination_rate,
+                'elite_rate': self.elite_rate
+            }
+        }
+
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
+
+        logger.info("状态保存完成")
+
+    def load_state(self, filepath: str) -> None:
+        """加载生态系统状态"""
+        logger.info(f"从文件加载状态: {filepath}")
+
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f"状态文件不存在: {filepath}")
+
+        with open(filepath, 'r', encoding='utf-8') as f:
+            state = json.load(f)
+
+        # 恢复基本状态
+        self.generation = state['generation']
+
+        # 恢复智能体
+        self.agents = [Agent.from_dict(agent_data) for agent_data in state['agents']]
+
+        # 恢复历史数据
+        self.history = [GenerationData(**gen_data) for gen_data in state['history']]
+
+        # 恢复参数
+        if 'parameters' in state:
+            self.elimination_rate = state['parameters'].get('elimination_rate', 0.2)
+            self.elite_rate = state['parameters'].get('elite_rate', 0.2)
+
+        logger.info(f"状态恢复完成: 第 {self.generation} 代, {len(self.agents)} 个智能体")
+
+    def reset_scores(self) -> None:
+        """重置所有智能体的分数"""
+        for agent in self.agents:
+            agent.fitness_score = 0.0
+            agent.clear_history()
+
+    def get_population_summary(self) -> Dict[str, Any]:
+        """获取种群总结信息"""
+        if not self.agents:
+            return {
+                'total_agents': 0,
+                'generation': self.generation,
+                'diversity_index': 0.0,
+                'role_distribution': {},
+                'model_distribution': {}
+            }
+
+        # 角色分布
+        role_counts = {}
+        for agent in self.agents:
+            role_counts[agent.role] = role_counts.get(agent.role, 0) + 1
+
+        # 模型分布
+        model_counts = {}
+        for agent in self.agents:
+            model_counts[agent.model] = model_counts.get(agent.model, 0) + 1
+
+        return {
+            'total_agents': len(self.agents),
+            'generation': self.generation,
+            'diversity_index': self.calculate_diversity_index(),
+            'role_distribution': role_counts,
+            'model_distribution': model_counts,
+            'average_fitness': sum(agent.fitness_score for agent in self.agents) / len(self.agents)
+        }
+
+    def __str__(self) -> str:
+        """字符串表示"""
+        summary = self.get_population_summary()
+        return (f"Ecosystem(gen={summary['generation']}, "
+                f"agents={summary['total_agents']}, "
+                f"diversity={summary['diversity_index']:.3f})")
+
+
+def create_stratified_population(model_pool: List[Dict], population_size: int = 30) -> List[Agent]:
+    """
+    创建分层抽样种群 - 确保多样性和平衡性
+
+    Args:
+        model_pool: 模型池列表
+        population_size: 种群大小
+
+    Returns:
+        智能体列表
+    """
+    if not model_pool:
+        raise ValueError("模型池不能为空")
+
+    # 角色分布：1/3 critical, 1/3 standard, 1/3 awakened
+    role_counts = {
+        'critical': population_size // 3,
+        'standard': population_size // 3,
+        'awakened': population_size - 2 * (population_size // 3)
+    }
+
+    agents = []
+    agent_id = 1
+
+    for role, count in role_counts.items():
+        for i in range(count):
+            # 循环选择模型确保多样性
+            model_info = model_pool[i % len(model_pool)]
+
+            agent = AgentFactory.create_agent(
+                model_info=model_info,
+                role=role,
+                agent_id=f"agent_{agent_id:02d}_{model_info['model'].replace(':', '_')}"
+            )
+            agents.append(agent)
+            agent_id += 1
+
+    return agents

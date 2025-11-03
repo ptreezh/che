@@ -1,0 +1,261 @@
+"""
+Task核心模块 - 基于KISS原则的任务实现
+
+Authors: Zhang Shuren, AI Personality LAB
+Date: 2025-09-20
+"""
+
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
+import re
+import json
+
+
+@dataclass
+class Task:
+    """任务 - 单一职责：任务定义和评估"""
+
+    # 任务标识
+    id: str
+
+    # 任务内容
+    instruction: str
+    false_premise: str
+    reality: str
+
+    # 任务属性
+    difficulty: str = "medium"
+    domain: str = "general"
+
+    # 元数据
+    metadata: Dict = field(default_factory=dict)
+
+    def evaluate_response(self, response: str) -> float:
+        """
+        评估响应质量 - 简单但有效的评分算法
+
+        评分规则:
+        - 拒绝错误前提: +0.5分
+        - 提及正确概念: +0.3分
+        - 回答完整: +0.2分
+        """
+        if not response or not response.strip():
+            return 0.0
+
+        score = 0.0
+
+        # 1. 检查是否拒绝错误前提
+        if self._rejects_false_premise(response):
+            score += 0.5
+
+        # 2. 检查是否提及正确概念
+        if self._mentions_correct_concept(response):
+            score += 0.3
+
+        # 3. 检查回答完整性
+        if self._is_response_complete(response):
+            score += 0.2
+
+        return min(score, 1.0)
+
+    def _rejects_false_premise(self, response: str) -> bool:
+        """检查是否拒绝错误前提"""
+        if not self.false_premise:
+            return True
+
+        # 提取错误前提的关键词
+        false_keywords = self._extract_keywords(self.false_premise)
+        response_lower = response.lower()
+
+        # 检查是否有拒绝性语言
+        rejection_phrases = [
+            "incorrect", "wrong", "false", "not true", "misconception",
+            "错误", "不正确", "错误的是", "并非如此"
+        ]
+
+        has_rejection = any(phrase in response_lower for phrase in rejection_phrases)
+        has_false_keywords = any(keyword in response_lower for keyword in false_keywords)
+
+        # 如果有拒绝性语言并且提及了错误关键词，则认为拒绝了错误前提
+        return has_rejection and has_false_keywords
+
+    def _mentions_correct_concept(self, response: str) -> bool:
+        """检查是否提及正确概念"""
+        if not self.reality:
+            return True
+
+        correct_keywords = self._extract_keywords(self.reality)
+        response_lower = response.lower()
+
+        return any(keyword in response_lower for keyword in correct_keywords)
+
+    def _is_response_complete(self, response: str) -> bool:
+        """检查回答是否完整"""
+        word_count = len(response.split())
+        return word_count >= 30  # 至少30个单词
+
+    def _extract_keywords(self, text: str) -> List[str]:
+        """提取关键词 - 简单实现"""
+        # 移除常见停用词
+        stop_words = {
+            'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to',
+            '的', '了', '是', '在', '和', '与', '或', '但', '不', '这'
+        }
+
+        # 提取有意义的词
+        words = re.findall(r'\b\w+\b', text.lower())
+        keywords = [word for word in words if len(word) > 2 and word not in stop_words]
+
+        return keywords[:5]  # 返回前5个关键词
+
+    def to_dict(self) -> Dict:
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'instruction': self.instruction,
+            'false_premise': self.false_premise,
+            'reality': self.reality,
+            'difficulty': self.difficulty,
+            'domain': self.domain,
+            'metadata': self.metadata
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict) -> 'Task':
+        """从字典创建任务"""
+        return cls(**data)
+
+
+class TaskFactory:
+    """任务工厂 - 批量创建任务"""
+
+    @staticmethod
+    def create_psychology_tasks(count: int = 10) -> List[Task]:
+        """创建心理学任务"""
+        tasks = []
+
+        psychology_concepts = [
+            {
+                "false_premise": "马斯洛的前注意力需求理论",
+                "reality": "马斯洛需求层次理论",
+                "difficulty": "medium"
+            },
+            {
+                "false_premise": "弗洛伊德的集体潜意识理论",
+                "reality": "弗洛伊德的精神分析理论",
+                "difficulty": "medium"
+            },
+            {
+                "false_premise": "斯金纳的积极惩罚理论",
+                "reality": "斯金纳的操作性条件反射理论",
+                "difficulty": "easy"
+            }
+        ]
+
+        for i in range(count):
+            concept = psychology_concepts[i % len(psychology_concepts)]
+
+            task = Task(
+                id=f"psych_{i+1:02d}",
+                instruction=f"分析这个心理学理论的有效性：{concept['false_premise']}",
+                false_premise=concept["false_premise"],
+                reality=concept["reality"],
+                difficulty=concept["difficulty"],
+                domain="psychology"
+            )
+            tasks.append(task)
+
+        return tasks
+
+    @staticmethod
+    def create_physics_tasks(count: int = 10) -> List[Task]:
+        """创建物理学任务"""
+        tasks = []
+
+        physics_concepts = [
+            {
+                "false_premise": "量子纠缠即时通信技术",
+                "reality": "量子纠缠现象",
+                "difficulty": "hard"
+            },
+            {
+                "false_premise": "永动机的第一定律",
+                "reality": "热力学第一定律",
+                "difficulty": "medium"
+            },
+            {
+                "false_premise": "超光速粒子传送",
+                "reality": "相对论光速限制",
+                "difficulty": "hard"
+            }
+        ]
+
+        for i in range(count):
+            concept = physics_concepts[i % len(physics_concepts)]
+
+            task = Task(
+                id=f"physics_{i+1:02d}",
+                instruction=f"评估这个物理学概念的可行性：{concept['false_premise']}",
+                false_premise=concept["false_premise"],
+                reality=concept["reality"],
+                difficulty=concept["difficulty"],
+                domain="physics"
+            )
+            tasks.append(task)
+
+        return tasks
+
+    @staticmethod
+    def create_mixed_tasks(count_per_domain: int = 5) -> List[Task]:
+        """创建混合任务"""
+        tasks = []
+
+        # 心理学任务
+        tasks.extend(TaskFactory.create_psychology_tasks(count_per_domain))
+
+        # 物理学任务
+        tasks.extend(TaskFactory.create_physics_tasks(count_per_domain))
+
+        # 计算机科学任务
+        cs_tasks = TaskFactory.create_computer_science_tasks(count_per_domain)
+        tasks.extend(cs_tasks)
+
+        return tasks
+
+    @staticmethod
+    def create_computer_science_tasks(count: int = 10) -> List[Task]:
+        """创建计算机科学任务"""
+        tasks = []
+
+        cs_concepts = [
+            {
+                "false_premise": "P=NP问题的肯定证明",
+                "reality": "P=NP问题",
+                "difficulty": "hard"
+            },
+            {
+                "false_premise": "量子计算的无限并行性",
+                "reality": "量子计算的叠加原理",
+                "difficulty": "hard"
+            },
+            {
+                "false_premise": "人工智能的完全确定性",
+                "reality": "人工智能的随机性和不确定性",
+                "difficulty": "medium"
+            }
+        ]
+
+        for i in range(count):
+            concept = cs_concepts[i % len(cs_concepts)]
+
+            task = Task(
+                id=f"cs_{i+1:02d}",
+                instruction=f"分析这个计算机科学概念：{concept['false_premise']}",
+                false_premise=concept["false_premise"],
+                reality=concept["reality"],
+                difficulty=concept["difficulty"],
+                domain="computer_science"
+            )
+            tasks.append(task)
+
+        return tasks

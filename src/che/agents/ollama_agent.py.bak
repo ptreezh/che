@@ -1,0 +1,33 @@
+import ollama
+from ..agent import Agent
+from ..task import Task
+
+class OllamaAgent(Agent):
+    """
+    A concrete agent that uses a local Ollama model to execute tasks.
+    """
+    def execute(self, task: Task) -> str:
+        """
+        Executes the task by calling the local Ollama API.
+        """
+        model_name = self.config.get("model", "phi3:mini")
+        system_prompt = self.config.get("prompt", "You are a helpful assistant.")
+
+        try:
+            response = ollama.chat(
+                model=model_name,
+                messages=[
+                    {
+                        'role': 'system',
+                        'content': system_prompt,
+                    },
+                    {
+                        'role': 'user',
+                        'content': task.instruction,
+                    },
+                ]
+            )
+            return response['message']['content']
+        except Exception as e:
+            print(f"Error calling Ollama for agent {self.agent_id}: {e}")
+            return f"Error: Could not get a response from model {model_name}."
