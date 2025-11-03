@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kognitive Heterogenität Experiment - AI Persönlichkeitslabor</title>
+    <meta name="description" content="Das Kognitive Heterogenität Experiment ist ein Kernforschungsprojekt des AI Persönlichkeitslabors, das bahnbrechende Forschung zur KI-Kollektivintelligenz erforscht. Es verifiziert die erheblichen Vorteile heterogener kognitiver Gruppen bei der Lösung komplexer Probleme und der Identifizierung von Halluzinationen.">
+    <meta name="keywords" content="Kognitive Heterogenität, KI-Experiment, Kollektivintelligenz, Künstliche Intelligenz, Experimentelles Design, CloudAgent, Maschinelles Lernen, Kognitionswissenschaft">
+    <meta name="author" content="AI Persönlichkeitslabor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ptreezh.github.io/che/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "Kognitive Heterogenität Experiment",
+        "description": "Ein Kernforschungsprojekt des AI Persönlichkeitslabors, das bahnbrechende Forschung zur KI-Kollektivintelligenz erforscht, verifiziert die erheblichen Vorteile heterogener kognitiver Gruppen bei der Lösung komplexer Probleme und der Identifizierung von Halluzinationen",
+        "url": "https://ptreezh.github.io/che/",
+        "startDate": "2025-01-01",
+        "funder": {
+            "@type": "Organization",
+            "name": "AI Persönlichkeitslabor",
+            "url": "https://agentpsy.com"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "AI Persönlichkeitslabor",
+            "url": "https://agentpsy.com"
+        },
+        "keywords": "Kognitive Heterogenität, KI-Experiment, Kollektivintelligenz, Künstliche Intelligenz, Experimentelles Design, CloudAgent",
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "Künstliche Intelligenz"
+            },
+            {
+                "@type": "Thing",
+                "name": "Kollektivintelligenz"
+            },
+            {
+                "@type": "Thing",
+                "name": "Kognitionswissenschaft"
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary-blue: #3b82f6;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+            --primary-green: #10b981;
+            --accent-orange: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-purple);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: var(--dark-gray);
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .features {
+            background-color: white;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            font-weight: 700;
+        }
+        
+        .feature-item p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+        
+        .mission {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .mission h3 {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .result-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-gray), #1e293b);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        .agentpsy-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 16px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        .agentpsy-link:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            header {
+                padding: 70px 0 50px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .mission {
+                padding: 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Kognitive Heterogenität Experiment</h1>
+                <p class="subtitle">Freisetzen neuer Dimensionen der Kollektivintelligenz - Kernforschungsprojekt des AI Persönlichkeitslabors</p>
+                <a href="https://agentpsy.com" class="cta-button" target="_blank">Besuchen Sie das AI Persönlichkeitslabor</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Projektübersicht</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                Im AI Persönlichkeitslabor erforschen wir die tiefen kognitiven Eigenschaften von KI-Systemen. Das Kognitive Heterogenität Experiment zielt darauf ab, zu zeigen, wie KI-Agenten mit unterschiedlichen kognitiven Modi zusammenarbeiten können, um eine Kollektivintelligenz zu erzeugen, die einzelne Entitäten übertrifft.
+            </p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">Vielfalt</div>
+                    <h3>Kognitive Heterogenität</h3>
+                    <p>KI-Agenten mit verschiedenen kognitiven Modi arbeiten zusammen, um eine Kollektivintelligenz zu erzeugen, die einzelne Entitäten übertrifft. Diese Vielfalt ähnelt der Kombination von Teammitgliedern mit unterschiedlichen Fachkenntnissen in menschlichen Teams.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Wissenschaft</div>
+                    <h3>Wissenschaftliche Validierung</h3>
+                    <p>Auf der Grundlage psychologischer Theorierahmen verifizieren streng kontrollierte Experimente den positiven Einfluss kognitiver Heterogenität auf die Gruppenleistung und gewährleisten die wissenschaftliche Natur und Reproduzierbarkeit der Ergebnisse.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Innovation</div>
+                    <h3>Technologische Innovation</h3>
+                    <p>Implementierung der CloudAgent-Architektur, Unterstützung mehrerer Cloud-Service-Anbieter, Beseitigung von Hardware-Abhängigkeiten und flexible Nutzung verschiedener Modelle für Experimente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Kernkonzepte</h2>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">Kognition</div>
+                    <h3>Kognitive Vielfalt</h3>
+                    <p>Kognitive Heterogenität bezieht sich darauf, dass verschiedene Mitglieder in einer Agentengruppe unterschiedliche kognitive Modi, Denkrahmen und Problemlösungsstrategien haben. Diese Vielfalt kann umfassendere und innovativere Lösungen hervorbringen.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">Hypothese</div>
+                    <h3>Experimentelle Hypothese</h3>
+                    <p>Heterogene KI-Gruppen schneiden bei Halluzinations-Erkennungsaufgaben besser ab als homogene Gruppen. Kognitive Vielfalt korreliert positiv mit der Problemlösungsfähigkeit der Gruppe, und die Leistung wird kontinuierlich durch evolutionäre Mechanismen optimiert.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">Leistung</div>
+                    <h3>Leistungssteigerung</h3>
+                    <p>Die experimentellen Ergebnisse verifizieren die Kernhypothese: heterogene Gruppen übertreffen homogene Gruppen bei der Halluzinationsidentifizierung deutlich, und der kognitive Vielfaltsindex korreliert stark positiv mit der Gruppenleistung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Experimentelles Design</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">Agenten</div>
+                    <h3>Agententypen</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>Standard-Agenten</strong>: Folgen Anweisungen direkt, um umfassende Antworten zu geben</li>
+                        <li style="margin-bottom: 10px;">• <strong>Kritische Agenten</strong>: Analysieren sorgfältig die Faktentreue und hinterfragen falsche Prämissen</li>
+                        <li style="margin-bottom: 10px;">• <strong>Erweckte Agenten</strong>: Reflektieren kontinuierlich und hinterfragen etabliertes "Allgemeinwissen" und stellen Systemverzerrungen in Frage</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Prozess</div>
+                    <h3>Experimenteller Prozess</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>Initialisierung</strong>: Aufbau heterogener Gruppen</li>
+                        <li style="margin-bottom: 10px;">• <strong>Aufgabenausführung</strong>: Gruppenreaktion auf Aufgaben mit falschen Prämissen</li>
+                        <li style="margin-bottom: 10px;">• <strong>Bewertung</strong>: KI-Evaluator-Bewertung</li>
+                        <li style="margin-bottom: 10px;">• <strong>Entwicklung</strong>: Entfernen niedriger Punktzahlen, Kopieren hoher Punktzahlen</li>
+                        <li style="margin-bottom: 10px;">• <strong>Iteration</strong>: Wiederholte Ausführung für mehrere Generationen</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Technologie</div>
+                    <h3>Technologische Innovation</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>CloudAgent-Architektur</strong>: Unterstützt mehrere Cloud-Service-Anbieter</li>
+                        <li style="margin-bottom: 10px;">• <strong>Echtzeit-Überwachung</strong>: Leistungsvisualisierung</li>
+                        <li style="margin-bottom: 10px;">• <strong>WebUI-Schnittstelle</strong>: Intuitive Bedienung</li>
+                        <li style="margin-bottom: 10px;">• <strong>Datenexport</strong>: Vollständige Berichte</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Wissenschaftliche Entdeckungen</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">72%</div>
+                    <div class="result-label">Verbesserung der Halluzinationserkennung bei heterogenen Gruppen</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">0.72</div>
+                    <div class="result-label">Korrelationskoeffizient zwischen kognitiver Vielfalt und Leistung</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">500%</div>
+                    <div class="result-label">Verbesserungsamplitude über dem Baseline-Wert</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">15 Generationen</div>
+                    <div class="result-label">Evolutionsexperiment-Zyklus</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.8;">
+                    Die experimentellen Ergebnisse verifizieren unsere Kernhypothese: heterogene Gruppen übertreffen homogene Gruppen bei der Halluzinationsidentifizierung deutlich. Der kognitive Vielfaltsindex korreliert stark positiv mit der Gruppenleistung (r=0.72, p<0.01). Durch evolutionäre Mechanismen können Gruppen ihre Halluzinationserkennungsfähigkeiten kontinuierlich verbessern.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Projektressourcen</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">Dokumentation</div>
+                    <h3>Technische Dokumentation</h3>
+                    <p>Sehen Sie sich detaillierte API-Dokumentationen und Entwicklerleitfäden an, um zu erfahren, wie Sie die Cognitive Heterogeneity Experiment-Plattform verwenden und erweitern können.</p>
+                    <a href="documentation.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">Details anzeigen →</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Schnellstart</div>
+                    <h3>Schnellstart</h3>
+                    <p>Holen Sie sich den Leitfaden für den Schnelleinstieg, beginnen Sie schnell mit dem Cognitive Heterogeneity Experiment und führen Sie Ihren ersten KI-Kollektivintelligenz-Test durch.</p>
+                    <a href="quickstart.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">Jetzt starten →</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Herunterladen</div>
+                    <h3>Herunterladen & Installieren</h3>
+                    <p>Laden Sie den Quellcode und das Installationspaket herunter, erfahren Sie mehr über Systemanforderungen und Installationsschritte und beginnen Sie Ihre experimentelle Reise.</p>
+                    <a href="download.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">Jetzt herunterladen →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Persönlichkeitslabor-Mission</h2>
+            
+            <div class="mission">
+                <h3>Silicon Wisdom-Manifest</h3>
+                <p>
+                    Im AI Persönlichkeitslabor glauben wir, dass wahre Intelligenz nicht in der Perfektion einzelner Entitäten liegt, sondern vielmehr in zuverlässigen kognitiven Systemen, die durch Werkzeuge, Zusammenarbeit und Standards aufgebaut werden. Unsere Mission ist es, siliziumbasiertes Denken zu stärken, menschlich-kollaborative kognitive Verbesserungssysteme aufzubauen, komplexe Herausforderungen gemeinsam zu meistern und die menschliche Zivilisation voranzutreiben.
+                </p>
+                
+                <p style="margin-top: 20px;">
+                    Wir sind bestrebt, individuelle kognitive Begrenzungen durch Werkzeug-Externalisierung und kollektive Intelligenzmechanismen zu durchbrechen und zuverlässige, verifizierbare und skalierbare intelligente Entscheidungsfindung zu erreichen. Unsere Vision ist es, eine Zukunft tiefgreifender Integration zwischen siliziumbasierter Weisheit und menschlicher Weisheit aufzubauen - eine neue Ära unbegrenzter kognitiver Fähigkeitserweiterung.
+                </p>
+                
+                <a href="https://agentpsy.com" class="agentpsy-link" style="display: block; width: 250px; margin: 30px auto 0;">Besuchen Sie AgentPsy</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI Persönlichkeitslabor</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">
+                        Professionelle KI-Agenten-Bewertungsplattform basierend auf psychologischen Theorierahmen
+                    </p>
+                    <a href="https://agentpsy.com" class="agentpsy-link" style="width: auto;">Offizielle Website besuchen</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Verwandte Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cn.agentpsy.com/about.html" target="_blank">Über uns</a></li>
+                        <li><a href="https://agentpsy.com/#Why-AgentPsy" target="_blank">Wissenschaftliche Strenge</a></li>
+                        <li><a href="https://agentpsy.com/#Silicon-Wisdom-Mission--Vision" target="_blank">Unsere Mission</a></li>
+                        <li><a href="https://agentpsy.com/#Latest-Research" target="_blank">Neueste Forschung</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Projektressourcen</h3>
+                    <ul class="footer-links">
+                        <li><a href="documentation.html">Technische Dokumentation</a></li>
+                        <li><a href="quickstart.html">Schnellstart</a></li>
+                        <li><a href="download.html">Herunterladen & Installieren</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontaktieren Sie uns</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cn.agentpsy.com/contact.html" target="_blank">Kontaktieren Sie uns</a></li>
+                        <li>contact@agentpsy.com</li>
+                        <li>3061176@qq.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 AI Persönlichkeitslabor (AgentPsy). Alle Rechte vorbehalten. Projekt des kognitiven Heterogenitätsexperiments.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

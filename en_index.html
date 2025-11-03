@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognitive Heterogeneity Experiment - AI Psy Lab</title>
+    <meta name="description" content="The Cognitive Heterogeneity Experiment is the core research project of AI Psy Lab, exploring the cutting-edge research of AI swarm intelligence. Validates the significant advantages of heterogeneous cognitive groups in solving complex problems and identifying hallucinations.">
+    <meta name="keywords" content="Cognitive Heterogeneity, AI Experiment, Swarm Intelligence, Artificial Intelligence, Experimental Design, CloudAgent, Machine Learning, Cognitive Science">
+    <meta name="author" content="AI Psy Lab">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ptreezh.github.io/che/en/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "Cognitive Heterogeneity Experiment",
+        "description": "AI Psy Lab's core research project, exploring the cutting-edge research of AI swarm intelligence, validating the significant advantages of heterogeneous cognitive groups in solving complex problems and identifying hallucinations",
+        "url": "https://ptreezh.github.io/che/en/",
+        "startDate": "2025-01-01",
+        "funder": {
+            "@type": "Organization",
+            "name": "AI Psy Lab",
+            "url": "https://agentpsy.com"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "AI Psy Lab",
+            "url": "https://agentpsy.com"
+        },
+        "keywords": "Cognitive Heterogeneity, AI Experiment, Swarm Intelligence, Artificial Intelligence, Experimental Design, CloudAgent",
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "Artificial Intelligence"
+            },
+            {
+                "@type": "Thing",
+                "name": "Swarm Intelligence"
+            },
+            {
+                "@type": "Thing",
+                "name": "Cognitive Science"
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary-blue: #3b82f6;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+            --primary-green: #10b981;
+            --accent-orange: #f59e0b;
+            --deep-blue: #1e3a8a;
+            --light-green: #d1fae5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-purple);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: var(--dark-gray);
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: var(--primary-blue);
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .features {
+            background-color: white;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            font-weight: 700;
+        }
+        
+        .feature-item p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+        
+        .research-team {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        
+        .team-member {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-blue), #e0f2fe);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-blue);
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member h3 {
+            color: var(--dark-gray);
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .team-member .position {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 18px;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .mission {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .mission h3 {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .result-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-gray), #1e293b);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        .agentpsy-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 16px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        .agentpsy-link:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            header {
+                padding: 70px 0 50px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .mission {
+                padding: 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Cognitive Heterogeneity Experiment</h1>
+                <p class="subtitle">Unlocking New Dimensions of Swarm Intelligence - AI Psy Lab Core Research Project</p>
+                <a href="https://agentpsy.com" class="cta-button" target="_blank">Visit AI Psy Lab</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                At AI Psy Lab, we are dedicated to exploring the deep cognitive characteristics of AI systems. The Cognitive Heterogeneity Experiment aims to reveal how AI agents with different cognitive patterns collaborate to generate swarm intelligence that surpasses individual agents.
+            </p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">Cognitive</div>
+                    <h3>Cognitive Heterogeneity</h3>
+                    <p>AI agents with different cognitive patterns work together to generate swarm intelligence that surpasses individual agents. This diversity is similar to the combination of members with different professional backgrounds in human teams.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Scientific</div>
+                    <h3>Scientific Validation</h3>
+                    <p>Based on psychological theory frameworks, we validate the positive impact of cognitive heterogeneity on group performance through strictly controlled experiments, ensuring the scientific nature and reproducibility of the results.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Innovation</div>
+                    <h3>Technical Innovation</h3>
+                    <p>Implementing the CloudAgent architecture, supporting multiple cloud service providers, breaking free from hardware dependencies, and flexibly invoking different models for experiments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Core Concepts</h2>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">Diversity</div>
+                    <h3>Cognitive Diversity</h3>
+                    <p>Cognitive heterogeneity refers to a group of agents where different members have different cognitive patterns, thinking frameworks, and problem-solving strategies. This diversity can generate more comprehensive and innovative solutions.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">Hypothesis</div>
+                    <h3>Experimental Hypothesis</h3>
+                    <p>Heterogeneous AI groups perform better than homogeneous groups in hallucination detection tasks. Cognitive diversity is positively correlated with group problem-solving ability, and performance is continuously optimized through evolutionary mechanisms.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">Performance</div>
+                    <h3>Performance Enhancement</h3>
+                    <p>Experimental results verify the core hypothesis: heterogeneous groups significantly outperform homogeneous groups in hallucination recognition, and the cognitive diversity index is strongly positively correlated with group performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-team">
+        <div class="container">
+            <h2 class="section-title">Experimental Design</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">Agent Types</div>
+                    <h3>Agent Types</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>Standard Agent</strong>: Follows instructions directly to provide comprehensive answers</li>
+                        <li style="margin-bottom: 10px;">• <strong>Critical Agent</strong>: Carefully analyzes factual accuracy, questions false premises</li>
+                        <li style="margin-bottom: 10px;">• <strong>Awakened Agent</strong>: Continuously reflects and questions established "common sense", challenging system biases</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Process</div>
+                    <h3>Experimental Process</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>Initialization</strong>: Build heterogeneous group</li>
+                        <li style="margin-bottom: 10px;">• <strong>Task Execution</strong>: Group responds to tasks with false premises</li>
+                        <li style="margin-bottom: 10px;">• <strong>Evaluation</strong>: AI evaluator scores</li>
+                        <li style="margin-bottom: 10px;">• <strong>Evolution</strong>: Remove low scores, replicate high scores</li>
+                        <li style="margin-bottom: 10px;">• <strong>Iteration</strong>: Repeat execution across multiple generations</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Innovation</div>
+                    <h3>Technical Innovation</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>CloudAgent Architecture</strong>: Supports multi-cloud services</li>
+                        <li style="margin-bottom: 10px;">• <strong>Real-time Monitoring</strong>: Performance visualization</li>
+                        <li style="margin-bottom: 10px;">• <strong>WebUI Interface</strong>: Intuitive operations</li>
+                        <li style="margin-bottom: 10px;">• <strong>Data Export</strong>: Complete reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Scientific Discoveries</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">72%</div>
+                    <div class="result-label">Heterogeneous Group Hallucination Recognition Improvement</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">0.72</div>
+                    <div class="result-label">Cognitive Diversity and Performance Correlation Coefficient</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">500%</div>
+                    <div class="result-label">Improvement Beyond Baseline</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">15 Generations</div>
+                    <div class="result-label">Evolutionary Experiment Period</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.8;">
+                    Experimental results validate our core hypothesis: heterogeneous groups significantly outperform homogeneous groups in hallucination recognition. The cognitive diversity index is strongly positively correlated with group performance (r=0.72, p<0.01). Through evolutionary mechanisms, groups can continuously improve hallucination detection capabilities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Project Resources</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">Documentation</div>
+                    <h3>Technical Documentation</h3>
+                    <p>View detailed API documentation and development guides to learn how to use and extend the Cognitive Heterogeneity Experiment platform.</p>
+                    <a href="documentation.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">Learn More →</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Start</div>
+                    <h3>Quick Start</h3>
+                    <p>Get the quick start guide to quickly get started with Cognitive Heterogeneity Experiment and run your first AI swarm intelligence test.</p>
+                    <a href="quickstart.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">Get Started →</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">Download</div>
+                    <h3>Download</h3>
+                    <p>Get the source code and installation package, learn system requirements and installation steps to start your experiment journey.</p>
+                    <a href="download.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">Download →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Lab Mission</h2>
+            
+            <div class="mission">
+                <h3>Silicon Wisdom Manifesto</h3>
+                <p>
+                    At AI Psy Lab, we believe that true intelligence does not lie in the perfection of individual entities, but rather in reliable cognitive systems constructed through tools, collaboration, and standards. Our mission is to empower silicon-based thinking and build human-machine collaborative cognitive enhancement systems to jointly address complex challenges and advance human civilization.
+                </p>
+                
+                <p style="margin-top: 20px;">
+                    We are committed to breaking through individual cognitive limitations through tool externalization and collective intelligence mechanisms, achieving reliable, verifiable, and scalable intelligent decision-making. Our vision is to build a future of deep integration between silicon-based wisdom and human wisdom—a new era of unlimited cognitive capability expansion.
+                </p>
+                
+                <a href="https://agentpsy.com" class="agentpsy-link" style="display: block; width: 250px; margin: 30px auto 0;">Visit AgentPsy</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI Psy Lab</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">
+                        Professional AI Agent Assessment Platform Based on Psychological Theory Frameworks.
+                    </p>
+                    <a href="https://agentpsy.com" class="agentpsy-link" style="width: auto;">Visit Website</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Related Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cn.agentpsy.com/about.html" target="_blank">About Us</a></li>
+                        <li><a href="https://agentpsy.com/#Why-AgentPsy" target="_blank">Scientific Rigor</a></li>
+                        <li><a href="https://agentpsy.com/#Silicon-Wisdom-Mission--Vision" target="_blank">Our Mission</a></li>
+                        <li><a href="https://agentpsy.com/#Latest-Research" target="_blank">Latest Research</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Project Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="documentation.html">Technical Documentation</a></li>
+                        <li><a href="quickstart.html">Quick Start</a></li>
+                        <li><a href="download.html">Download</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cn.agentpsy.com/contact.html" target="_blank">Contact Us</a></li>
+                        <li>contact@agentpsy.com</li>
+                        <li>3061176@qq.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 AI Psy Lab (AgentPsy). All Rights Reserved. Cognitive Heterogeneity Experiment Project.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

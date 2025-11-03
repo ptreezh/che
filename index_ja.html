@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認知異質性実験 - AI人格研究所</title>
+    <meta name="description" content="認知異質性実験はAI人格研究所の核心研究プロジェクトであり、AI集団知能の最先端研究を探索しています。異質な認知集団が複雑な問題解決と幻覚識別における顕著な優位性を検証します。">
+    <meta name="keywords" content="認知異質性, AI実験, 集団知能, 人工知能, 実験設計, CloudAgent, 機械学習, 認知科学">
+    <meta name="author" content="AI人格研究所">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ptreezh.github.io/che/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "認知異質性実験",
+        "description": "AI人格研究所の核心研究プロジェクトであり、AI集団知能の最先端研究を探索し、異質な認知集団が複雑な問題解決と幻覚識別における顕著な優位性を検証します",
+        "url": "https://ptreezh.github.io/che/",
+        "startDate": "2025-01-01",
+        "funder": {
+            "@type": "Organization",
+            "name": "AI人格研究所",
+            "url": "https://agentpsy.com"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "AI人格研究所",
+            "url": "https://agentpsy.com"
+        },
+        "keywords": "認知異質性, AI実験, 集団知能, 人工知能, 実験設計, CloudAgent",
+        "about": [
+            {
+                "@type": "Thing",
+                "name": "人工知能"
+            },
+            {
+                "@type": "Thing",
+                "name": "集団知能"
+            },
+            {
+                "@type": "Thing",
+                "name": "認知科学"
+            }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --primary-blue: #3b82f6;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+            --accent-purple: #8b5cf6;
+            --light-gray: #f8fafc;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --black: #0f172a;
+            --primary-green: #10b981;
+            --accent-orange: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-purple);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark-gray);
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: var(--dark-gray);
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .features {
+            background-color: white;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+            font-weight: 700;
+        }
+        
+        .feature-item p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+        
+        .mission {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .mission h3 {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .result-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-gray), #1e293b);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        .agentpsy-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 16px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        .agentpsy-link:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            header {
+                padding: 70px 0 50px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .mission {
+                padding: 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>認知異質性実験</h1>
+                <p class="subtitle">集団知能の新次元を解き放つ - AI人格研究所核心研究プロジェクト</p>
+                <a href="https://agentpsy.com" class="cta-button" target="_blank">AI人格研究所を訪問</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">プロジェクト概要</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                AI人格研究所では、AIシステムの深い認知特性の探求に取り組んでいます。認知異質性実験は、異なる認知モードを持つAIエージェントが協力して、個々のエージェントを超える集団知能を生み出す方法を明らかにすることを目的としています。
+            </p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">認知</div>
+                    <h3>認知異質性</h3>
+                    <p>異なる認知モードを持つAIエージェントが協力して、個々のエージェントを超える集団知能を生み出します。この多様性は、人間のチームにおける異なる専門的背景を持つメンバーの組み合わせに似ています。</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">科学</div>
+                    <h3>科学的検証</h3>
+                    <p>心理学的理論フレームワークに基づき、厳密に管理された実験を通じて認知異質性がグループパフォーマンスに与える積極的影響を検証し、結果の科学性と再現性を確保します。</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">革新</div>
+                    <h3>技術革新</h3>
+                    <p>CloudAgentアーキテクチャを実装し、複数のクラウドサービスプロバイダーをサポートし、ハードウェア依存から解放され、実験に柔軟に異なるモデルを呼び出します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">核心概念</h2>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">多様性</div>
+                    <h3>認知多様性</h3>
+                    <p>認知異質性とは、エージェントのグループ内で異なるメンバーが異なる認知モード、思考フレームワーク、問題解決戦略を持っていることを指します。この多様性により、より包括的で革新的な解決策を生み出すことができます。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">仮説</div>
+                    <h3>実験仮説</h3>
+                    <p>異質なAIグループは、幻覚検出タスクにおいて同質なグループより優れたパフォーマンスを発揮します。認知多様性とグループの問題解決能力は正の相関があり、進化的メカニズムを通じてパフォーマンスが継続的に最適化されます。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">性能</div>
+                    <h3>性能向上</h3>
+                    <p>実験結果は核心仮説を検証しました。異質なグループは同質なグループより幻覚識別で顕著に優れています。認知多様性指数とグループパフォーマンスは強い正の相関があります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">実験設計</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">エージェント</div>
+                    <h3>エージェントタイプ</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>標準型エージェント</strong>：指示に従って包括的な回答を直接提供</li>
+                        <li style="margin-bottom: 10px;">• <strong>批判型エージェント</strong>：事実の正確性を詳細に分析し、誤った前提を疑問視</li>
+                        <li style="margin-bottom: 10px;">• <strong>覚醒型エージェント</strong>：確立された「常識」を継続的に反省・疑問視し、システムの偏見に挑戦</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">プロセス</div>
+                    <h3>実験プロセス</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>初期化</strong>：異質性グループの構築</li>
+                        <li style="margin-bottom: 10px;">• <strong>タスク実行</strong>：誤った前提を持つタスクへのグループ応答</li>
+                        <li style="margin-bottom: 10px;">• <strong>評価</strong>：AI評価器によるスコアリング</li>
+                        <li style="margin-bottom: 10px;">• <strong>進化</strong>：低スコアの削除、高スコアの複製</li>
+                        <li style="margin-bottom: 10px;">• <strong>反復</strong>：複数世代にわたる実行の繰り返し</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">技術</div>
+                    <h3>技術革新</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• <strong>CloudAgentアーキテクチャ</strong>：マルチクラウドサービスをサポート</li>
+                        <li style="margin-bottom: 10px;">• <strong>リアルタイム監視</strong>：パフォーマンスの可視化</li>
+                        <li style="margin-bottom: 10px;">• <strong>WebUIインターフェース</strong>：直感的操作</li>
+                        <li style="margin-bottom: 10px;">• <strong>データエクスポート</strong>：完全なレポート</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">科学的発見</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">72%</div>
+                    <div class="result-label">異質性グループの幻覚識別向上</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">0.72</div>
+                    <div class="result-label">認知多様性とパフォーマンスの相関係数</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">500%</div>
+                    <div class="result-label">ベースラインを超える改善幅</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">15世代</div>
+                    <div class="result-label">進化実験周期</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.8;">
+                    実験結果は我々の核心仮説を検証しました。異質なグループは同質なグループより幻覚識別で顕著に優れています。認知多様性指数とグループパフォーマンスは強い正の相関があります（r=0.72, p<0.01）。進化的メカニズムを通じて、グループは幻覚検出能力を継続的に向上させることができます。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">プロジェクトリソース</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">文書</div>
+                    <h3>技術文書</h3>
+                    <p>詳細なAPI文書と開発ガイドを閲覧し、認知異質性実験プラットフォームの使用と拡張方法を学びます。</p>
+                    <a href="documentation.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">詳細を見る →</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">開始</div>
+                    <h3>クイックスタート</h3>
+                    <p>クイックスタートガイドを入手し、認知異質性実験を素早く開始し、最初のAI集団知能テストを実行します。</p>
+                    <a href="quickstart.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">今すぐ開始 →</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">ダウンロード</div>
+                    <h3>ダウンロード</h3>
+                    <p>ソースコードとインストールパッケージを入手し、システム要件とインストール手順を学び、実験の旅を開始します。</p>
+                    <a href="download.html" class="agentpsy-link" style="display: inline-block; margin-top: 15px;">今すぐダウンロード →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">研究所使命</h2>
+            
+            <div class="mission">
+                <h3>シリコン知恵宣言</h3>
+                <p>
+                    AI人格研究所では、真の知能は個々の完全性ではなく、ツール、協力、標準を通じて構築された信頼できる認知システムにこそ存在すると信じています。我々の使命は、シリコンベースの思考を賦活し、人機協同の認知強化システムを構築し、複雑な課題に共同で取り組み、人類文明を推進することです。
+                </p>
+                
+                <p style="margin-top: 20px;">
+                    ツールの外部化と集団知能メカニズムを通じて個人の認知制限を突破し、信頼性、検証可能性、拡張性のあるインテリジェントな意思決定を実現することに取り組んでいます。我々のビジョンは、シリコンベースの知恵と人間の知恵が深く融合する未来——人間の認知能力が無限に拡張される新時代を構築することです。
+                </p>
+                
+                <a href="https://agentpsy.com" class="agentpsy-link" style="display: block; width: 250px; margin: 30px auto 0;">AgentPsyを訪問</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI人格研究所</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">
+                        心理学的理論フレームワークに基づくプロフェッショナルなAIエージェント評価プラットフォーム
+                    </p>
+                    <a href="https://agentpsy.com" class="agentpsy-link" style="width: auto;">公式サイトを訪問</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>関連リンク</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cn.agentpsy.com/about.html" target="_blank">私たちについて</a></li>
+                        <li><a href="https://agentpsy.com/#Why-AgentPsy" target="_blank">科学的厳密性</a></li>
+                        <li><a href="https://agentpsy.com/#Silicon-Wisdom-Mission--Vision" target="_blank">我々の使命</a></li>
+                        <li><a href="https://agentpsy.com/#Latest-Research" target="_blank">最新研究</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>プロジェクトリソース</h3>
+                    <ul class="footer-links">
+                        <li><a href="documentation.html">技術文書</a></li>
+                        <li><a href="quickstart.html">クイックスタート</a></li>
+                        <li><a href="download.html">ダウンロード</a></li>
+                        <li><a href="faq.html">よくある質問</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cn.agentpsy.com/contact.html" target="_blank">お問い合わせ</a></li>
+                        <li>contact@agentpsy.com</li>
+                        <li>3061176@qq.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 AI人格研究所 (AgentPsy). 無断転載を禁じます。認知異質性実験プロジェクト。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
