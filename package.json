@@ -1,0 +1,56 @@
+{
+  "name": "cognitive-heterogeneity-experiment-platform",
+  "version": "1.0.0",
+  "description": "Scientific experiment platform for cognitive heterogeneity and collective intelligence research",
+  "main": "dist/index.js",
+  "bin": {
+    "dashboard-server": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "npm run clean && tsc && npm run build:dashboard",
+    "dev": "tsx src/dashboard-server.ts",
+    "dev:dashboard": "vite --config src/dashboard_frontend/vite.config.ts",
+    "build:dashboard": "vite build --config src/dashboard_frontend/vite.config.ts",
+    "clean": "rimraf dist",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage"
+  },
+  "keywords": [
+    "cognitive-heterogeneity",
+    "collective-intelligence",
+    "ai-experiments",
+    "scientific-research",
+    "experiment-platform"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@fastify/static": "^7.0.4",
+    "@fastify/websocket": "^8.2.1",
+    "clsx": "^2.1.1",
+    "fastify": "^4.24.3",
+    "highlight.js": "^11.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^22.18.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@types/ws": "^8.5.13",
+    "@vitejs/plugin-react": "^4.3.3",
+    "@vitest/coverage-v8": "^2.1.8",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^3.4.10",
+    "tsx": "^4.7.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.8"
+  }
+}
