@@ -37,64 +37,72 @@ logger = setup_logging()
 def create_diverse_population(population_size: int = 30) -> Ecosystem:
     """
     Create a diverse population of agents with different cognitive types.
-    
+
     Args:
         population_size: Total number of agents to create (default: 30)
-        
+
     Returns:
         New ecosystem with diverse agent population
     """
     logger.info(f"Creating diverse population with {population_size} agents...")
-    
+
     # Calculate agent counts for each type
     critical_count = population_size // 3
     awakened_count = population_size // 3
     standard_count = population_size - critical_count - awakened_count
-    
+
     agents = []
-    
+
+    # Use local models that are available
+    # For this example, we'll use gemma:2b, qwen:7b-chat, and llama3:latest
+    # which are available on the local system
+    available_models = ["gemma:2b", "qwen:7b-chat", "llama3:latest"]
+
     # Create critical agents
     for i in range(critical_count):
         agent_id = f"critical_{i+1:02d}"
+        model_index = i % len(available_models)
         agent = OllamaAgent(
             agent_id=agent_id,
             config={
-                "model": "qwen:0.5b",
+                "model": available_models[model_index],
                 "prompt": get_prompt(PromptType.CRITICAL)
             }
         )
         agents.append(agent)
-    
+
     # Create awakened agents
     for i in range(awakened_count):
         agent_id = f"awakened_{i+1:02d}"
+        model_index = i % len(available_models)
         agent = OllamaAgent(
             agent_id=agent_id,
             config={
-                "model": "qwen:0.5b",
+                "model": available_models[model_index],
                 "prompt": get_prompt(PromptType.AWAKENED)
             }
         )
         agents.append(agent)
-    
+
     # Create standard agents
     for i in range(standard_count):
         agent_id = f"standard_{i+1:02d}"
+        model_index = i % len(available_models)
         agent = OllamaAgent(
             agent_id=agent_id,
             config={
-                "model": "qwen:0.5b",
+                "model": available_models[model_index],
                 "prompt": get_prompt(PromptType.STANDARD)
             }
         )
         agents.append(agent)
-    
+
     logger.info(f"Created diverse population: {critical_count} critical, {awakened_count} awakened, {standard_count} standard agents")
-    
+
     ecosystem = Ecosystem()
     for agent in agents:
         ecosystem.add_agent(agent)
-    
+
     return ecosystem
 
 

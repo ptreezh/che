@@ -15,12 +15,12 @@ import logging
 
 from .agent import Agent
 from .task import Task
-from ..agents.ollama_agent import (
-    OllamaAgent, 
-    create_critical_ollama_agent, 
-    create_awakened_ollama_agent, 
-    create_standard_ollama_agent
-)
+from ..agents.ollama_agent import (
+    OllamaAgent, 
+    create_critical_ollama_agent, 
+    create_awakened_ollama_agent, 
+    create_standard_ollama_agent
+)
 from ..agents.agent_factory import AgentFactory
 from ..prompts import PromptType
 
@@ -153,49 +153,50 @@ class Ecosystem:
     def evolve(self, scores: Dict[str, float]) -> None:
         """
         Evolve the agent population based on the scores from the last generation.
-        
+
         This method removes the lowest-scoring agent and replicates the highest-scoring agent.
         It also applies enhanced evolutionary mechanisms including mutation and diversity maintenance.
-        
+
         Args:
             scores: Dictionary mapping agent_id to its score from the last generation
         """
         if not scores or len(self.agents) <= 1:
             return  # Cannot evolve with no scores or one/zero agents
-        
+
         # Find the IDs of the best and worst agents
         worst_agent_id = min(scores, key=scores.get)
         best_agent_id = max(scores, key=scores.get)
-        
+
         # Remove the worst agent
         if worst_agent_id in self.agents:
             del self.agents[worst_agent_id]
-        
+
         # Replicate the best agent
+        new_id = None  # Initialize new_id to None
         if best_agent_id in self.agents:
             best_agent_template = self.agents[best_agent_id]
             new_id = f"{best_agent_id}_replica_{uuid.uuid4().hex[:4]}"
             replicated_agent = best_agent_template.replicate(new_agent_id=new_id)
             self.agents[new_id] = replicated_agent
-        
+
         # Apply enhanced evolutionary mechanisms
         try:
             from ..evolution.evolutionary_mechanisms import EvolutionaryMechanisms
             evolution_mech = EvolutionaryMechanisms()
-            
+
             # Apply mutation to some agents
             agent_list = list(self.agents.values())
-            if len(agent_list) > 2:
+            if len(agent_list) > 2 and new_id is not None:  # Only proceed if new_id was created
                 # Mutate a random agent (other than the newly replicated one)
                 mutable_agents = [agent for agent in agent_list if agent.agent_id != new_id]
                 if mutable_agents:
                     agent_to_mutate = random.choice(mutable_agents)
                     mutated_agent = evolution_mech.mutate_agent(agent_to_mutate, self.generation)
-                    
+
                     # Replace the original agent with the mutated one
                     del self.agents[agent_to_mutate.agent_id]
                     self.agents[mutated_agent.agent_id] = mutated_agent
-                    
+
                     logger.debug(f"Applied mutation: {agent_to_mutate.agent_id} -> {mutated_agent.agent_id}")
             
             # Maintain diversity
