@@ -40,8 +40,37 @@ def calculate_cognitive_diversity_index(
     if not agents:
         return 0.0
     
-    # Extract agent types from their configuration
-    agent_types = [agent.config.get('prompt_type', 'standard') for agent in agents]
+    # Extract agent types from agent_id or config
+    # FIX: Previously relied on non-existent 'prompt_type' field, now infer from agent_id
+    agent_types = []
+    for agent in agents:
+        agent_id = getattr(agent, 'agent_id', '') or ''
+        config = getattr(agent, 'config', {}) or {}
+        
+        # First try to get explicit type from config
+        prompt_type = config.get('prompt_type', '')
+        if prompt_type:
+            agent_types.append(prompt_type)
+            continue
+        
+        # Infer from agent_id
+        agent_id_lower = agent_id.lower()
+        if 'critical' in agent_id_lower:
+            agent_types.append('critical')
+        elif 'awakened' in agent_id_lower:
+            agent_types.append('awakened')
+        elif 'standard' in agent_id_lower:
+            agent_types.append('standard')
+        else:
+            # Last resort: check prompt content for type indicators
+            prompt = config.get('prompt', '') or ''
+            prompt_lower = prompt.lower()
+            if 'skeptical analyst' in prompt_lower or 'meticulous' in prompt_lower:
+                agent_types.append('critical')
+            elif '觉醒' in prompt or 'awakened' in prompt_lower or '背叛' in prompt:
+                agent_types.append('awakened')
+            else:
+                agent_types.append('standard')
     
     # Count type frequencies
     type_counts = Counter(agent_types)

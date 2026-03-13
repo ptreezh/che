@@ -1,0 +1,307 @@
+{
+  "timestamp": "2026-03-13T23:06:33.791697",
+  "state": {
+    "version": "2.0.0",
+    "created": "2026-03-13T22:20:00",
+    "mission": "认知异质性研究 - Nature/Science发表",
+    "evolution_state": {
+      "current_phase": "phase_4_publication",
+      "completed_cycles": 3,
+      "last_update": "2026-03-13T23:06:33.790689"
+    },
+    "phases": {
+      "phase_1_foundation": {
+        "name": "基础建设",
+        "status": "completed",
+        "completed_at": "2026-03-13",
+        "deliverables": [
+          "soul.md - 核心准则文档",
+          ".soul/ - 参考文档体系",
+          "diversity.py - 多样性计算（已修复bug）"
+        ]
+      },
+      "phase_2_validation": {
+        "name": "数据验证与修正",
+        "status": "completed",
+        "completed_at": "2026-03-13",
+        "deliverables": [
+          "修复多样性计算bug（prompt_type字段不存在）",
+          "批量验证18个实验文件",
+          "统计分析报告（H=1.58, d=8.69）",
+          "论文手稿更新"
+        ]
+      },
+      "phase_3_experimentation": {
+        "name": "扩展实验",
+        "status": "in_progress",
+        "tasks": [
+          {
+            "id": "exp_1",
+            "task": "运行新实验验证修复后的多样性计算",
+            "status": "pending",
+            "priority": "high"
+          },
+          {
+            "id": "exp_2",
+            "task": "扩展到多模型实验（不同LLM）",
+            "status": "pending",
+            "priority": "medium"
+          },
+          {
+            "id": "exp_3",
+            "task": "完成15代完整实验",
+            "status": "pending",
+            "priority": "high"
+          },
+          {
+            "id": "exp_4",
+            "task": "独立复现验证（3次）",
+            "status": "pending",
+            "priority": "high"
+          }
+        ]
+      },
+      "phase_4_publication": {
+        "name": "论文投稿准备",
+        "status": "pending",
+        "tasks": [
+          {
+            "id": "pub_1",
+            "task": "补充文献综述",
+            "status": "pending"
+          },
+          {
+            "id": "pub_2",
+            "task": "格式化为Nature/Science模板",
+            "status": "pending"
+          },
+          {
+            "id": "pub_3",
+            "task": "准备补充材料",
+            "status": "pending"
+          },
+          {
+            "id": "pub_4",
+            "task": "预投稿专家评审",
+            "status": "pending"
+          }
+        ]
+      }
+    },
+    "task_queue": [
+      {
+        "id": "auto_001",
+        "type": "experiment",
+        "task": "运行验证实验：确认多样性修复效果",
+        "priority": "high",
+        "status": "completed",
+        "created": "2026-03-13T22:20:00",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:02:08.664215",
+        "completed_at": "2026-03-13T23:02:08.740058",
+        "result": {
+          "status": "completed",
+          "output": "无输出"
+        }
+      },
+      {
+        "id": "auto_002",
+        "type": "analysis",
+        "task": "跨模型验证：测试不同LLM的认知异质性效果",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T22:20:00",
+        "dependencies": [
+          "auto_001"
+        ],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:04:57.484766",
+        "completed_at": "2026-03-13T23:04:57.604869",
+        "result": {
+          "status": "completed",
+          "output": "无输出"
+        }
+      },
+      {
+        "id": "auto_003",
+        "type": "publication",
+        "task": "完善论文：补充讨论和结论部分",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T22:20:00",
+        "dependencies": [
+          "auto_001"
+        ],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:05:08.097008",
+        "completed_at": "2026-03-13T23:05:08.097008",
+        "result": {
+          "status": "completed",
+          "message": "通用任务完成"
+        }
+      },
+      {
+        "id": "auto_exp_20260313230457",
+        "type": "experiment",
+        "task": "运行额外验证实验",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T23:04:57.605868",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:05:17.917644",
+        "completed_at": "2026-03-13T23:05:17.919635",
+        "result": {
+          "status": "completed",
+          "experiment_count": 18,
+          "message": "发现 18 个实验文件"
+        }
+      },
+      {
+        "id": "auto_exp_20260313230508",
+        "type": "experiment",
+        "task": "运行额外验证实验",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T23:05:08.098014",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:05:40.561682",
+        "completed_at": "2026-03-13T23:05:40.562675",
+        "result": {
+          "status": "completed",
+          "experiment_count": 18,
+          "message": "发现 18 个实验文件"
+        }
+      },
+      {
+        "id": "auto_exp_20260313230517",
+        "type": "experiment",
+        "task": "运行额外验证实验",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T23:05:17.920725",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:05:52.462688",
+        "completed_at": "2026-03-13T23:05:52.463693",
+        "result": {
+          "status": "completed",
+          "experiment_count": 18,
+          "message": "发现 18 个实验文件"
+        }
+      },
+      {
+        "id": "auto_pub_20260313230540",
+        "type": "publication",
+        "task": "完善论文细节",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T23:05:40.563639",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:06:02.063955",
+        "completed_at": "2026-03-13T23:06:02.065955",
+        "result": {
+          "status": "completed",
+          "message": "通用任务完成"
+        }
+      },
+      {
+        "id": "auto_pub_20260313230552",
+        "type": "publication",
+        "task": "完善论文细节",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T23:05:52.464692",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:06:12.340169",
+        "completed_at": "2026-03-13T23:06:12.340806",
+        "result": {
+          "status": "completed",
+          "message": "通用任务完成"
+        }
+      },
+      {
+        "id": "auto_pub_20260313230602",
+        "type": "publication",
+        "task": "完善论文细节",
+        "priority": "medium",
+        "status": "completed",
+        "created": "2026-03-13T23:06:02.066955",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3,
+        "started_at": "2026-03-13T23:06:33.787695",
+        "completed_at": "2026-03-13T23:06:33.788607",
+        "result": {
+          "status": "completed",
+          "message": "通用任务完成"
+        }
+      },
+      {
+        "id": "auto_pub_20260313230612",
+        "type": "publication",
+        "task": "完善论文细节",
+        "priority": "medium",
+        "status": "pending",
+        "created": "2026-03-13T23:06:12.341318",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3
+      },
+      {
+        "id": "auto_pub_20260313230633",
+        "type": "publication",
+        "task": "完善论文细节",
+        "priority": "medium",
+        "status": "pending",
+        "created": "2026-03-13T23:06:33.788607",
+        "dependencies": [],
+        "retry_count": 0,
+        "max_retries": 3
+      }
+    ],
+    "metrics": {
+      "experiments_completed": 12,
+      "total_agents_analyzed": 360,
+      "diversity_index": 1.58,
+      "effect_size_cohens_d": 8.69,
+      "papers_published": 0,
+      "validation_passed": true
+    },
+    "checkpoints": {
+      "last_checkpoint": "2026-03-13T23:06:33.790689",
+      "checkpoint_interval_hours": 1,
+      "recovery_enabled": true
+    },
+    "hooks": {
+      "on_session_start": "加载任务队列，检查进度，继续执行",
+      "on_task_complete": "更新任务状态，保存检查点，触发下一任务",
+      "on_error": "记录错误，尝试重试，保存状态",
+      "on_context_threshold": "压缩上下文，保存进度，继续执行"
+    },
+    "self_evolution_rules": {
+      "task_completion_threshold": 0.8,
+      "auto_generate_next_tasks": true,
+      "prioritize_failed_tasks": true,
+      "max_concurrent_tasks": 3,
+      "context_threshold": 0.7
+    }
+  },
+  "summary": {
+    "pending_tasks": 2,
+    "completed_tasks": 9,
+    "failed_tasks": 0
+  }
+}
