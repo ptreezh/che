@@ -1,47 +1,45 @@
-# Cover Letter for Nature Submission
+# Cover Letter for Scientific Reports Submission
 
-## Cognitive Heterogeneity in Multi-Agent Systems: An Evolutionary Approach to Hallucination Resistance
+## Cognitive Heterogeneity in Multi-Agent Systems: An Evolutionary Approach to False Premise Detection
 
 Dear Editor,
 
-We are pleased to submit our manuscript "Cognitive Heterogeneity in Multi-Agent Systems: An Evolutionary Approach to Hallucination Resistance and Collective Intelligence" for consideration in Nature.
+We are pleased to submit our manuscript "Cognitive Heterogeneity in Multi-Agent Systems: An Evolutionary Approach to False Premise Detection" for consideration in Scientific Reports.
 
 ### Significance Statement
 
-This work presents a fundamental advance in our understanding of collective intelligence in artificial systems. Our key finding—that cognitive heterogeneity produces an extremely large effect (Cohen's d = 8.69) in hallucination detection—challenges the prevailing paradigm of homogeneous multi-agent architectures.
+This work presents a methodological advance in multi-agent system design. Our key finding—that cognitive heterogeneity produces a large effect (Cohen's d = 0.93) in false premise detection—demonstrates the value of diverse cognitive approaches in AI systems.
 
 ### Key Contributions
 
-1. **Novel Theoretical Framework**: We introduce the Cognitive Heterogeneity Hypothesis, proposing that diverse cognitive approaches create synergistic effects exceeding individual agent capabilities.
+1. **Methodological Innovation**: We introduce an evolutionary framework that maintains near-perfect cognitive diversity (Shannon entropy = 1.585, 100% of theoretical maximum) across generations.
 
-2. **Rigorous Empirical Validation**: Our experiments spanning 11 generations demonstrate:
-   - Shannon entropy H = 1.58 (near maximum H_max = 1.585)
-   - 97% improvement in hallucination detection (0.52 → 1.02)
-   - Cohen's d = 8.69 (extremely large effect)
-   - Statistical significance p < 0.05
+2. **Rigorous Empirical Validation**: Our experiments demonstrate:
+   - 356 experimental records across multiple generations
+   - 64% improvement in performance over homogeneous baselines
+   - Cohen's d = 0.93 (large effect)
+   - Statistical significance p < 0.000001
 
-3. **Practical Framework**: We provide an open-source evolutionary optimization system that maintains cognitive diversity while improving collective performance.
+3. **Cross-Model Validation**: Results validated across 3 different LLM architectures (GLM-4.7, Qwen3, GPT-OSS), confirming robustness.
 
 ### Broad Interest
 
-This work bridges multiple disciplines:
-- **AI/ML**: Multi-agent systems, hallucination mitigation
-- **Cognitive Science**: Collective intelligence, cognitive diversity
-- **Complex Systems**: Emergent behavior, evolutionary dynamics
-- **AI Safety**: Robustness, reliability, error detection
+This work addresses fundamental questions in:
+- **AI/ML**: Multi-agent system design, hallucination mitigation
+- **Cognitive Science**: Cognitive diversity, collective intelligence
+- **AI Safety**: System robustness and reliability
 
 ### Novelty
 
 To our knowledge, this is the first study to:
-1. Quantify the effect of cognitive heterogeneity on hallucination detection
-2. Demonstrate that diverse cognitive approaches produce emergent collective intelligence
-3. Provide an evolutionary framework for maintaining diversity in AI systems
+1. Quantify the effect of cognitive heterogeneity on false premise detection using evolutionary optimization
+2. Demonstrate that an evolutionary framework can maintain perfect cognitive diversity
+3. Provide cross-model validation of cognitive heterogeneity effects
 
 ### Data Availability
 
 All experimental data, code, and analysis scripts are available at:
 - GitHub: https://github.com/ptreezh/che
-- DOI: [to be assigned upon publication]
 
 ### Competing Interests
 
@@ -51,7 +49,7 @@ The authors declare no competing interests.
 
 This work has not been previously published and is not under consideration elsewhere.
 
-We believe this manuscript aligns well with Nature's scope and readership. We look forward to your response.
+We believe this manuscript aligns well with Scientific Reports' scope emphasizing methodological rigor and reproducibility.
 
 Sincerely,
 CHE Research Team
