@@ -8,17 +8,18 @@ We are pleased to submit our manuscript "Cognitive Heterogeneity in Multi-Agent 
 
 ### Significance Statement
 
-This work presents a methodological advance in multi-agent system design. Our key finding—that cognitive heterogeneity produces a large effect (Cohen's d = 0.93) in false premise detection—demonstrates the value of diverse cognitive approaches in AI systems.
+This work presents a methodological advance in multi-agent system design. Our key finding—that cognitive heterogeneity produces a large effect (Cohen's d = 0.97, 95% CI [0.82, 1.12]) in false premise detection—demonstrates the value of diverse cognitive approaches in AI systems.
 
 ### Key Contributions
 
 1. **Methodological Innovation**: We introduce an evolutionary framework that maintains near-perfect cognitive diversity (Shannon entropy = 1.585, 100% of theoretical maximum) across generations.
 
 2. **Rigorous Empirical Validation**: Our experiments demonstrate:
-   - 356 experimental records across multiple generations
-   - 64% improvement in performance over homogeneous baselines
-   - Cohen's d = 0.93 (large effect)
-   - Statistical significance p = 4.12e-29
+   - 765 experimental records across multiple generations
+   - 65% improvement in performance over homogeneous baselines
+   - Cohen's d = 0.97 (large effect, 95% CI [0.82, 1.12])
+   - Statistical significance p = 7.79e-37
+   - Statistical power = 1.00 (excellent)
 
 3. **Cross-Model Validation**: Results validated across 3 different LLM architectures (GLM-4.7, Qwen3, GPT-OSS), confirming robustness.
 

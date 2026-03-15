@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This paper presents a comprehensive investigation into the effectiveness of cognitive heterogeneity in multi-agent systems. Through evolutionary optimization experiments, we demonstrate that heterogeneous agent populations significantly outperform homogeneous systems in detecting false premises. Our evolutionary framework successfully maintains near-perfect cognitive diversity (Shannon entropy = 1.585, 100% of theoretical maximum) across multiple generations while achieving a 64% improvement in task performance over homogeneous baselines. Effect size analysis reveals Cohen's d = 0.93 (large effect, p = 4.12e-29), with cross-model validation confirming robustness across three different LLM architectures. The key contribution of this work is a novel evolutionary mechanism that preserves cognitive diversity—a critical factor often overlooked in multi-agent system design. Our findings have direct implications for developing more robust AI systems, suggesting that cognitive heterogeneity should be a fundamental design principle rather than an afterthought.
+This paper presents a comprehensive investigation into the effectiveness of cognitive heterogeneity in multi-agent systems. Through evolutionary optimization experiments, we demonstrate that heterogeneous agent populations significantly outperform homogeneous systems in detecting false premises. Our evolutionary framework successfully maintains near-perfect cognitive diversity (Shannon entropy = 1.585, 100% of theoretical maximum) across multiple generations while achieving a 65% improvement in task performance over homogeneous baselines. Effect size analysis reveals Cohen's d = 0.97 (large effect, 95% CI [0.82, 1.12], p = 7.79e-37), with cross-model validation confirming robustness across three different LLM architectures. The key contribution of this work is a novel evolutionary mechanism that preserves cognitive diversity—a critical factor often overlooked in multi-agent system design. Our findings have direct implications for developing more robust AI systems, suggesting that cognitive heterogeneity should be a fundamental design principle rather than an afterthought.
 
 **Keywords**: Multi-agent systems, cognitive diversity, hallucination detection, collective intelligence, evolutionary optimization
 
@@ -15,8 +15,8 @@ This paper addresses the critical challenge of cognitive homogeneity in multi-ag
 Our main contributions are:
 1. A novel multi-agent architecture incorporating three distinct cognitive types: critical, awakened, and standard agents
 2. An evolutionary optimization mechanism that maintains near-perfect cognitive diversity while improving collective performance
-3. Comprehensive experimental validation demonstrating 64% improvement in false premise detection over homogeneous baselines
-4. Statistical validation with Cohen's d = 0.93 (large effect, p = 4.12e-29)
+3. Comprehensive experimental validation demonstrating 65% improvement in false premise detection over homogeneous baselines
+4. Statistical validation with Cohen's d = 0.97 (large effect, 95% CI [0.82, 1.12], p = 7.79e-37)
 5. Cross-model validation across 3 different LLM architectures confirming result robustness
 
 ## 2. Related Work
@@ -77,19 +77,21 @@ Our experimental results demonstrate significant performance improvements with c
 
 **Heterogeneous System Performance**:
 - Average performance: 0.535 ± 0.271
-- Sample size: 356 records
+- Sample size: 410 records
 
 **Homogeneous System Performance**:
 - Average performance: 0.323 ± 0.132
-- Sample size: 289 records
+- Sample size: 355 records
 
 **Effect Size Analysis**:
-- Cohen's d = 0.93 (large effect, d > 0.8)
-- t-statistic = 11.77
-- p-value = 4.12e-29 (highly significant)
-- Performance improvement: 64%
+- Cohen's d = 0.97 (large effect, d > 0.8)
+- 95% Confidence Interval: [0.82, 1.12]
+- t-statistic = 13.38
+- p-value = 7.79e-37 (highly significant)
+- Performance improvement: 65%
+- Statistical power: 1.00 (excellent)
 
-The heterogeneous system significantly outperformed homogeneous baseline, with a large effect size (d = 0.93), demonstrating substantial benefit of cognitive heterogeneity in false premise detection.
+The heterogeneous system significantly outperformed homogeneous baseline, with a large effect size (d = 0.97), demonstrating substantial benefit of cognitive heterogeneity in false premise detection. Bootstrap validation (10,000 resamples) confirmed the robustness of our effect size estimate.
 
 **[Figure 1: Performance Comparison]** - See `figures/fig1_performance_comparison.png`
 **[Figure 4: Effect Size Analysis]** - See `figures/fig4_effect_size.png`
