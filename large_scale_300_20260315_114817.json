@@ -1,0 +1,11 @@
+{
+  "experiment": "large_scale_300_agents",
+  "timestamp": "2026-03-15T11:48:17.412425",
+  "total_agents": 300,
+  "shannon_entropy_normalized": 1.0,
+  "shannon_entropy_raw": 1.5849625007211563,
+  "diversity_percentage": 100.0,
+  "cognitive_diversity_index": 0.6688963210702341,
+  "cohens_d": 8.69,
+  "statistical_power": ">0.99"
+}
