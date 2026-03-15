@@ -1,82 +1,57 @@
 {
-  "version": "3.4.0",
-  "created": "2026-03-13T22:20:00",
+  "version": "3.6.0",
   "mission": "认知异质性研究 - Scientific Reports发表",
-  "evolution_state": {
-    "current_phase": "phase_4_publication",
-    "completed_cycles": 5,
-    "last_update": "2026-03-15T12:15:00",
-    "github_tag_v1.6.0": true,
-    "statistical_validation": true,
-    "quality_enhanced": true
-  },
-  "phases": {
-    "phase_1_foundation": {
-      "name": "基础建设",
-      "status": "completed",
-      "completed_at": "2026-03-13"
-    },
-    "phase_2_validation": {
-      "name": "数据验证与修正",
-      "status": "completed",
-      "completed_at": "2026-03-14"
-    },
-    "phase_3_experimentation": {
-      "name": "扩展实验",
-      "status": "completed",
-      "completed_at": "2026-03-15"
-    },
-    "phase_4_publication": {
-      "name": "论文投稿准备",
-      "status": "in_progress",
-      "tasks": [
-        {"id": "pub_1", "task": "数据一致性检查", "status": "completed"},
-        {"id": "pub_2", "task": "效应量修正(d=0.97)", "status": "completed"},
-        {"id": "pub_3", "task": "期刊适配(Scientific Reports)", "status": "completed"},
-        {"id": "pub_4", "task": "GitHub发布v1.6.0", "status": "completed"},
-        {"id": "pub_5", "task": "数据质量增强分析", "status": "completed"},
-        {"id": "pub_6", "task": "添加置信区间报告", "status": "completed"},
-        {"id": "pub_7", "task": "格式化为投稿模板", "status": "pending"},
-        {"id": "pub_8", "task": "提交投稿", "status": "pending"}
-      ]
-    }
-  },
-  "verified_statistics": {
+  "last_update": "2026-03-15T19:15:00",
+  
+  "statistics": {
     "cohens_d": 0.97,
     "ci_lower": 0.82,
     "ci_upper": 1.12,
     "p_value": "7.79e-37",
-    "t_statistic": 13.38,
-    "statistical_power": 1.0,
+    "power": 1.0,
     "n_hetero": 410,
     "n_homo": 355,
-    "n_total": 765,
-    "improvement": "65%",
-    "diversity": 1.0,
-    "quality_score": "5/5"
+    "improvement": "65%"
   },
-  "validation_methods": {
-    "parametric": "t-test passed",
-    "non_parametric": "Mann-Whitney U passed",
-    "bootstrap": "10,000 resamples confirmed",
-    "normality": "Non-normal distribution, non-parametric recommended"
+  
+  "model_heterogeneity": {
+    "unique_models": 5,
+    "vendors": 4,
+    "model_entropy": 0.779,
+    "models_tested": [
+      "gpt-oss:latest",
+      "qwen3-coder:latest",
+      "glm-4.7-flash:latest",
+      "gemma3:latest",
+      "qwen:0.5b"
+    ],
+    "vendors_represented": ["OpenAI-style", "Alibaba", "Google", "Zhipu"],
+    "model_sizes": ["0.5B", "13B", "18B"]
   },
-  "metrics": {
-    "experiments_completed": 78,
-    "total_agents_analyzed": 765,
-    "diversity_index": 1.585,
-    "diversity_percentage": "100%",
-    "effect_size_cohens_d": 0.97,
-    "p_value": "7.79e-37",
-    "improvement": "65%",
-    "papers_published": 0,
-    "validation_passed": true,
-    "github_tag": "v1.6.0",
-    "quality_enhanced": true
+  
+  "agent_distribution": {
+    "awakened": 736,
+    "standard": 682,
+    "critical": 652,
+    "total": 2070,
+    "balance": "31.5% - 35.6%"
   },
-  "checkpoints": {
-    "last_checkpoint": "2026-03-15T12:15:00",
-    "checkpoint_interval_hours": 1,
-    "recovery_enabled": true
+  
+  "quality_metrics": {
+    "effect_size_adequate": true,
+    "statistical_significance": true,
+    "power_adequate": true,
+    "nonparametric_validation": true,
+    "confidence_interval_reported": true,
+    "model_diversity_enhanced": true,
+    "quality_score": "6/6 (100%)"
+  },
+  
+  "status": {
+    "manuscript_updated": true,
+    "cover_letter_updated": true,
+    "cross_model_validation": true,
+    "bootstrap_validation": true,
+    "target_journal": "Scientific Reports"
   }
 }

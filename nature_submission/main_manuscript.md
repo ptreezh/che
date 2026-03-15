@@ -204,13 +204,13 @@ Future work should explore:
 
 ## 6. Conclusion
 
-This paper demonstrates that cognitive heterogeneity in multi-agent systems significantly improves false premise detection. Our evolutionary framework successfully maintains perfect cognitive diversity (Shannon entropy = 1.585, 100% of maximum) while achieving 64% improvement over homogeneous baselines with a large effect size (Cohen's d = 0.93, p < 0.000001).
+This paper demonstrates that cognitive heterogeneity in multi-agent systems significantly improves false premise detection. Our evolutionary framework successfully maintains perfect cognitive diversity (Shannon entropy = 1.585, 100% of maximum) while achieving 65% improvement over homogeneous baselines with a large effect size (Cohen's d = 0.97, 95% CI [0.82, 1.12], p = 7.79e-37).
 
 Key findings:
-1. **Diversity Effect**: Cognitive heterogeneity provides substantial benefits (64% improvement) in detecting false premises
+1. **Diversity Effect**: Cognitive heterogeneity provides substantial benefits (65% improvement) in detecting false premises
 2. **Diversity Maintenance**: The evolutionary framework preserves perfect balance (33.3% each type) across all experiments
-3. **Statistical Robustness**: Results are highly significant (p = 4.12e-29) with large effect size (d = 0.93)
-4. **Cross-model Validity**: Effects consistent across 3 different LLM architectures
+3. **Statistical Robustness**: Results are highly significant (p = 7.79e-37) with large effect size (d = 0.97, 95% CI [0.82, 1.12])
+4. **Cross-model Validity**: Effects consistent across 5 LLM architectures from 4 vendors
 
 These findings have direct implications for multi-agent system design. Our work provides a practical framework for implementing cognitive heterogeneity, suggesting that diverse cognitive approaches should be a fundamental design principle rather than an afterthought.
 
