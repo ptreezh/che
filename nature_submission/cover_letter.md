@@ -18,7 +18,7 @@ This work presents a methodological advance in multi-agent system design. Our ke
    - 356 experimental records across multiple generations
    - 64% improvement in performance over homogeneous baselines
    - Cohen's d = 0.93 (large effect)
-   - Statistical significance p < 0.000001
+   - Statistical significance p = 4.12e-29
 
 3. **Cross-Model Validation**: Results validated across 3 different LLM architectures (GLM-4.7, Qwen3, GPT-OSS), confirming robustness.
 
