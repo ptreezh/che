@@ -680,10 +680,11 @@
       "type": "publication",
       "task": "推送所有提交到GitHub（网络恢复后）",
       "priority": "high",
-      "status": "pending",
+      "status": "completed",
       "created": "2026-03-15T08:44:00",
+      "completed_at": "2026-03-15T09:35:00",
       "dependencies": [],
-      "retry_count": 0,
+      "retry_count": 1,
       "max_retries": 10
     },
     {
@@ -691,7 +692,7 @@
       "type": "publication",
       "task": "格式化论文为Nature投稿格式",
       "priority": "high",
-      "status": "pending",
+      "status": "in_progress",
       "created": "2026-03-15T08:44:00",
       "dependencies": [],
       "retry_count": 0,
@@ -702,11 +703,45 @@
       "type": "experiment",
       "task": "检查Ollama可用性并启动实验",
       "priority": "high",
-      "status": "pending",
+      "status": "completed",
       "created": "2026-03-15T08:44:00",
+      "completed_at": "2026-03-15T09:13:00",
+      "dependencies": [],
+      "retry_count": 1,
+      "max_retries": 5
+    },
+    {
+      "id": "run_large_scale_experiment",
+      "type": "experiment",
+      "task": "运行更大规模实验（100+ agents）",
+      "priority": "medium",
+      "status": "pending",
+      "created": "2026-03-15T09:40:00",
       "dependencies": [],
       "retry_count": 0,
-      "max_retries": 5
+      "max_retries": 3
+    },
+    {
+      "id": "add_gpt4_validation",
+      "type": "experiment",
+      "task": "添加GPT-4/Claude云模型验证",
+      "priority": "medium",
+      "status": "pending",
+      "created": "2026-03-15T09:40:00",
+      "dependencies": [],
+      "retry_count": 0,
+      "max_retries": 3
+    },
+    {
+      "id": "create_presentation",
+      "type": "publication",
+      "task": "创建学术报告PPT",
+      "priority": "medium",
+      "status": "pending",
+      "created": "2026-03-15T09:40:00",
+      "dependencies": [],
+      "retry_count": 0,
+      "max_retries": 3
     }
   ],
   "metrics": {
