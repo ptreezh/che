@@ -1,0 +1,25 @@
+{
+  "experiment": "large_scale_cognitive_heterogeneity",
+  "timestamp": "2026-03-15T10:55:06.843320",
+  "configuration": {
+    "model": "glm-4.7-flash:latest",
+    "total_agents": 105,
+    "agents_per_type": 35
+  },
+  "type_distribution": {
+    "standard": 35,
+    "awakened": 35,
+    "critical": 35
+  },
+  "metrics": {
+    "shannon_entropy": 1.0,
+    "shannon_entropy_max": 1.585,
+    "normalized_diversity": 0.6309,
+    "cognitive_diversity_index": 0.6731
+  },
+  "statistical_significance": {
+    "cohens_d": 8.69,
+    "p_value": "< 0.001",
+    "interpretation": "extremely_large_effect"
+  }
+}
