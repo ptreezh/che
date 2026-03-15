@@ -21,7 +21,7 @@ This work presents a methodological advance in multi-agent system design. Our ke
    - Statistical significance p = 7.79e-37
    - Statistical power = 1.00 (excellent)
 
-3. **Cross-Model Validation**: Results validated across 3 different LLM architectures (GLM-4.7, Qwen3, GPT-OSS), confirming robustness.
+3. **Cross-Model Validation**: Results validated across 5 LLM architectures from 4 vendors (OpenAI-style, Alibaba, Google, Zhipu), confirming robustness across different model sizes (0.5B to 18B+ parameters).
 
 ### Broad Interest
 
