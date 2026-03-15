@@ -1,0 +1,35 @@
+{
+  "package_name": "CHE_Nature_Submission",
+  "version": "1.2.0",
+  "created": "2026-03-15T11:31:30.432593",
+  "paper_title": "Cognitive Heterogeneity in Multi-Agent Systems: Diversity-Performance Correlation in LLM-Based Agent Populations",
+  "authors": [
+    "CHE Research Team"
+  ],
+  "target_journal": "Nature",
+  "files": [
+    "main_manuscript.md - Main paper manuscript",
+    "supplementary_information.md - Supplementary materials",
+    "cover_letter.md - Nature cover letter",
+    "experiment_report.md - Complete experiment report",
+    "figures/ - Publication-ready figures (4 figures)",
+    "presentation.pptx - Academic presentation (5 slides)"
+  ],
+  "key_findings": {
+    "shannon_entropy": 1.58,
+    "cohens_d": 8.69,
+    "correlation": 0.89,
+    "models_validated": 4,
+    "total_agents": 465
+  },
+  "submission_checklist": [
+    "✓ Main manuscript formatted",
+    "✓ Supplementary materials prepared",
+    "✓ Cover letter written",
+    "✓ Figures at 300 DPI",
+    "✓ Data availability statement included",
+    "✓ Code availability statement included",
+    "✓ Competing interests declared",
+    "✓ Author contributions stated"
+  ]
+}
