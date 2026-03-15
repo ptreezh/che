@@ -1,0 +1,40 @@
+{
+  "experiment": "cross_model_validation",
+  "timestamp": "2026-03-15T09:13:50.331346",
+  "results": [
+    {
+      "model": "glm-4.7-flash:latest",
+      "num_agents": 9,
+      "shannon_entropy": 1.0,
+      "cognitive_diversity_index": 0.0,
+      "average_score": 0.0,
+      "task_count": 2,
+      "total_responses": 18,
+      "valid_responses": 18
+    },
+    {
+      "model": "qwen3-coder:latest",
+      "num_agents": 9,
+      "shannon_entropy": 1.0,
+      "cognitive_diversity_index": 0.0,
+      "average_score": 0.0,
+      "task_count": 2,
+      "total_responses": 18,
+      "valid_responses": 18
+    },
+    {
+      "model": "gpt-oss:latest",
+      "num_agents": 9,
+      "shannon_entropy": 1.0,
+      "cognitive_diversity_index": 0.0,
+      "average_score": 0.0,
+      "task_count": 2,
+      "total_responses": 18,
+      "valid_responses": 18
+    }
+  ],
+  "summary": {
+    "models_tested": 3,
+    "total_models": 3
+  }
+}
