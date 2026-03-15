@@ -15,8 +15,8 @@ This paper addresses the critical challenge of cognitive homogeneity in multi-ag
 Our main contributions are:
 1. A novel multi-agent architecture incorporating three distinct cognitive types: critical, awakened, and standard agents
 2. An evolutionary optimization mechanism that maintains near-perfect cognitive diversity while improving collective performance
-3. Comprehensive experimental validation demonstrating 65% improvement in false premise detection over homogeneous baselines
-4. Statistical validation with Cohen's d = 0.97 (large effect, p < 0.000001)
+3. Comprehensive experimental validation demonstrating 64% improvement in false premise detection over homogeneous baselines
+4. Statistical validation with Cohen's d = 0.93 (large effect, p = 4.12e-29)
 5. Cross-model validation across 3 different LLM architectures confirming result robustness
 
 ## 2. Related Work
@@ -89,7 +89,7 @@ Our experimental results demonstrate significant performance improvements with c
 - p-value = 4.12e-29 (highly significant)
 - Performance improvement: 64%
 
-The heterogeneous system significantly outperformed homogeneous baseline, with a large effect size (d = 0.97), demonstrating substantial benefit of cognitive heterogeneity in false premise detection.
+The heterogeneous system significantly outperformed homogeneous baseline, with a large effect size (d = 0.93), demonstrating substantial benefit of cognitive heterogeneity in false premise detection.
 
 **[Figure 1: Performance Comparison]** - See `figures/fig1_performance_comparison.png`
 **[Figure 4: Effect Size Analysis]** - See `figures/fig4_effect_size.png`
