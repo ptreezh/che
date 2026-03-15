@@ -5,7 +5,8 @@
   "evolution_state": {
     "current_phase": "phase_4_publication",
     "completed_cycles": 3,
-    "last_update": "2026-03-15T08:43:57.805111"
+    "last_update": "2026-03-15T09:35:00",
+    "github_tag_v1.1.0": true
   },
   "phases": {
     "phase_1_foundation": {
@@ -726,7 +727,10 @@
     "available_models": ["gpt-oss:latest", "qwen3-coder:latest", "glm-4.7-flash:latest"],
     "figures_generated": true,
     "supplementary_materials_created": true,
-    "code_reproducibility_verified": true
+    "code_reproducibility_verified": true,
+    "experiment_report_created": true,
+    "github_tag_v1.1.0": true,
+    "nature_submission_ready": true
   },
   "checkpoints": {
     "last_checkpoint": "2026-03-15T08:43:57.805111",
