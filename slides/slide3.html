@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+.slide {
+  width: 720pt;
+  height: 405pt;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.header {
+  background: #1C2833;
+  padding: 15pt 30pt;
+  width: calc(100% - 60pt);
+}
+.header-title { color: #FFFFFF; font-size: 24pt; font-weight: bold; margin: 0; }
+.content {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 20pt 30pt;
+}
+.left-col { width: 45%; padding-right: 20pt; }
+.right-col { width: 55%; }
+.section-title { color: #1C2833; font-size: 16pt; font-weight: bold; margin-bottom: 10pt; }
+.text { color: #2E4053; font-size: 11pt; line-height: 1.5; margin-bottom: 6pt; }
+.type-box {
+  background: #F4F6F6;
+  border-radius: 5pt;
+  padding: 10pt;
+  margin-bottom: 8pt;
+}
+.type-name { color: #1C2833; font-size: 12pt; font-weight: bold; }
+.type-desc { color: #7F8C8D; font-size: 10pt; }
+.chart-placeholder {
+  background: #ECF0F1;
+  height: 180pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5pt;
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <h1 class="header-title">Methodology</h1>
+  </div>
+  <div class="content">
+    <div class="left-col">
+      <h2 class="section-title">Three Cognitive Types</h2>
+      <div class="type-box">
+        <div class="type-name">Critical Agent</div>
+        <div class="type-desc">Skeptical analyst, challenges assumptions, identifies logical fallacies</div>
+      </div>
+      <div class="type-box">
+        <div class="type-name">Awakened Agent</div>
+        <div class="type-desc">Self-aware, questions premises, explores alternative perspectives</div>
+      </div>
+      <div class="type-box">
+        <div class="type-name">Standard Agent</div>
+        <div class="type-desc">Baseline behavior, conventional reasoning, typical responses</div>
+      </div>
+    </div>
+    <div class="right-col">
+      <h2 class="section-title">Experimental Design</h2>
+      <p class="text">Population: 30 agents per generation, 15 generations</p>
+      <p class="text">Models: gemma3, glm-4.7-flash, qwen3-coder, gpt-oss</p>
+      <p class="text">Tasks: False premise detection, reasoning challenges</p>
+      <p class="text">Metrics: Shannon entropy, Cohen's d, correlation analysis</p>
+      <div class="chart-placeholder" id="chart1">
+        <p class="text">Performance Comparison Chart</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
