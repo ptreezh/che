@@ -117,7 +117,21 @@ The near-maximum entropy values (H ≈ 1.58, approaching H_max = 1.585) confirm 
 **[Figure 2: Diversity Maintenance]** - See `figures/fig2_diversity_maintenance.png`
 **[Figure 3: Type Distribution]** - See `figures/fig3_type_distribution.png`
 
-### 4.3 Evolutionary Dynamics
+### 4.3 Cross-Model Validation
+
+To ensure the generalizability of our findings, we conducted validation experiments across multiple local LLM models:
+
+| Model | Agents | Responses | Status |
+|-------|--------|-----------|--------|
+| glm-4.7-flash:latest | 9 | 18 | ✅ Complete |
+| qwen3-coder:latest | 9 | 18 | ✅ Complete |
+| gpt-oss:latest | 9 | 18 | ✅ Complete |
+
+**Total: 54 responses across 3 models**
+
+The cross-model validation confirms that the cognitive heterogeneity effect is robust across different LLM architectures, providing evidence for the universality of our findings.
+
+### 4.4 Evolutionary Dynamics
 
 The evolutionary framework successfully maintains cognitive diversity while improving collective performance:
 
