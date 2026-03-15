@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This paper presents a comprehensive investigation into the effectiveness of cognitive heterogeneity in suppressing hallucinations in multi-agent systems. Through large-scale evolutionary optimization experiments spanning 11 generations and validating with over 765 agents, we demonstrate that heterogeneous agent populations significantly outperform homogeneous systems in detecting false premises and achieving collective intelligence. Our findings show that diverse cognitive approaches (critical, awakened, and standard agents) create synergistic effects that exceed the sum of individual capabilities. We introduce an evolutionary framework that maintains cognitive diversity across generations while optimizing collective performance. The results show a 97% improvement in hallucination detection (0.52 to 1.02 average scores) with extremely high cognitive diversity (Shannon entropy H = 1.58, normalized to 100% of maximum). Effect size analysis reveals Cohen's d = 8.69 (extremely large effect) with statistical power >0.99, confirming robust and reproducible results. Cross-model validation across 4 different LLM architectures demonstrates the universality of these findings. This work contributes to the understanding of collective intelligence in AI systems and provides a framework for developing more robust and reliable multi-agent architectures.
+This paper presents a comprehensive investigation into the effectiveness of cognitive heterogeneity in suppressing hallucinations in multi-agent systems. Through evolutionary optimization experiments spanning multiple generations with 422 result records, we demonstrate that heterogeneous agent populations significantly outperform homogeneous systems in detecting false premises. Our findings show that diverse cognitive approaches (critical, awakened, and standard agents) create synergistic effects that exceed the sum of individual capabilities. We introduce an evolutionary framework that maintains perfect cognitive diversity (Shannon entropy H = 1.585, normalized to 100% of maximum) while optimizing collective performance. The results show a 65% improvement in hallucination detection (0.323 to 0.535 average scores) with a large effect size (Cohen's d = 0.97, p < 0.000001). Cross-model validation across 3 different LLM architectures demonstrates the robustness of these findings. This work contributes to the understanding of collective intelligence in AI systems and provides a practical framework for implementing cognitive heterogeneity.
 
 **Keywords**: Multi-agent systems, cognitive diversity, hallucination detection, collective intelligence, evolutionary optimization
 
@@ -87,11 +87,11 @@ Our experimental results demonstrate significant performance improvements with c
 - Standard agents: 0.52 ± 0.01
 
 **Effect Size Analysis**:
-- Heterogeneous vs Standard: Cohen's d = 8.69 (extremely large effect)
-- Heterogeneous vs Awakened: Cohen's d = 2.56 (large effect)
-- Heterogeneous vs Critical: Cohen's d = -4.24 (large effect, critical outperforms)
+- Heterogeneous vs Homogeneous: Cohen's d = 0.97 (large effect)
+- Performance improvement: 65% (hetero mean=0.535 vs homo mean=0.323)
+- p-value < 0.000001 (highly significant)
 
-The heterogeneous system significantly outperformed standard homogeneous baseline, with an extremely large effect size (d = 8.69), demonstrating the substantial benefit of cognitive heterogeneity in hallucination detection.
+The heterogeneous system significantly outperformed homogeneous baseline, with a large effect size (d = 0.97), demonstrating substantial benefit of cognitive heterogeneity in hallucination detection.
 
 **[Figure 1: Performance Comparison]** - See `figures/fig1_performance_comparison.png`
 **[Figure 4: Effect Size Analysis]** - See `figures/fig4_effect_size.png`
@@ -106,11 +106,11 @@ We measure cognitive diversity using Shannon entropy with log2 normalization:
 - Heterogeneity threshold: H ≥ 0.6
 - Assessment: All experiments show extremely high cognitive heterogeneity (H ≈ H_max)
 
-**Type Distribution** (Core Experiment):
-- Critical agents: 132 (36.7%)
-- Awakened agents: 117 (32.5%)
-- Standard agents: 111 (30.8%)
-- Total agents analyzed: 765+ (cumulative across all experiments)
+**Type Distribution**:
+- Critical agents: 10 (33.3%)
+- Awakened agents: 10 (33.3%)
+- Standard agents: 10 (33.3%)
+- Total agents per population: 30 (balanced distribution)
 
 The near-maximum entropy values (H ≈ 1.58, approaching H_max = 1.585) confirm that our evolutionary framework successfully maintains cognitive diversity across generations, with near-ideal balanced representation of all three cognitive types.
 
@@ -129,41 +129,37 @@ To ensure the generalizability of our findings, we conducted validation experime
 
 **Total: 54 responses across 3 models**
 
-The cross-model validation confirms that the cognitive heterogeneity effect is robust across different LLM architectures, providing evidence for the universality of our findings.
+The cross-model validation confirms that cognitive heterogeneity effects are consistent across different LLM architectures.
 
 ### 4.4 Large-Scale Validation
 
-To further validate our findings with increased statistical power, we conducted additional large-scale experiments:
+Comprehensive analysis of experimental data:
 
-**Large-Scale Experiment Parameters**:
-- Population size: 300 agents
-- Generations: 1 (initial generation)
-- Total agents analyzed: 765+ (cumulative across all experiments)
-- Statistical power: >0.99
+**Dataset Statistics**:
+- Total result records: 422
+- Heterogeneous system data points: 410
+- Homogeneous system data points: 355
 
-**Large-Scale Results**:
-- Shannon entropy: 1.0000 (normalized, 100% of maximum diversity)
-- Cognitive Diversity Index (CDI): 0.6689
-- Performance consistency maintained at scale
-- No evidence of diversity degradation with population scaling
+**Performance Comparison**:
+- Heterogeneous system: mean = 0.535, std = 0.271
+- Homogeneous system: mean = 0.323, std = 0.132
+- Improvement: 65%
 
-**Statistical Significance**:
-- Cohen's d = 8.69 (extremely large effect, confirmed)
-- p-value < 0.001 (highly significant)
-- Correlation coefficient r = 0.89 (strong positive correlation between diversity and performance)
-- Statistical power > 0.99 (extremely high)
+**Statistical Analysis**:
+- Cohen's d = 0.97 (large effect)
+- t-statistic = 13.38
+- p-value < 0.000001 (highly significant)
 
-The large-scale validation confirms that cognitive heterogeneity effects are robust and scalable, with no diminishment of benefits at larger population sizes.
+The analysis confirms that cognitive heterogeneity provides significant benefits in hallucination detection tasks.
 
 ### 4.5 Evolutionary Dynamics
 
 The evolutionary framework successfully maintains cognitive diversity while improving collective performance:
 
-- Diversity index remained stable across 11 generations (mean H = 1.58, SD = 0.005)
+- Perfect type distribution maintained: 10 critical, 10 awakened, 10 standard (33% each)
+- Shannon entropy H = 1.585 (100% of theoretical maximum H_max = log₂(3))
 - No convergence to homogeneous cognitive patterns observed
-- Population maintained near-optimal type distribution (approximately 1/3 each type)
-- Performance improved consistently over generations (r = 0.456, p < 0.001)
-- No convergence to homogeneous cognitive patterns observed
+- Population maintained optimal balanced type distribution
 
 ### 4.6 Hallucination Detection Analysis
 
@@ -204,11 +200,11 @@ Future work should explore:
 
 ## 6. Conclusion
 
-This paper demonstrates that cognitive heterogeneity in multi-agent systems significantly improves hallucination detection and enables collective intelligence emergence. Our evolutionary framework successfully maintains cognitive diversity while optimizing collective performance, achieving a 97% improvement over standard homogeneous baselines with an extremely large effect size (Cohen's d = 8.69).
+This paper demonstrates that cognitive heterogeneity in multi-agent systems significantly improves hallucination detection and enables collective intelligence emergence. Our evolutionary framework successfully maintains perfect cognitive diversity while optimizing collective performance, achieving a 65% improvement over homogeneous baselines with a large effect size (Cohen's d = 0.97, p < 0.000001).
 
-The maintenance of near-maximum cognitive diversity (Shannon entropy H = 1.58, approaching H_max = 1.585) across 11 generations confirms that diverse cognitive approaches provide genuine benefits rather than superficial differences. The balanced type distribution (approximately 36.7% Critical, 32.5% Awakened, 30.8% Standard) demonstrates the effectiveness of our diversity preservation mechanism.
+The maintenance of perfect cognitive diversity (Shannon entropy H = 1.585, 100% of H_max) confirms that diverse cognitive approaches provide genuine benefits. The balanced type distribution (33.3% each of Critical, Awakened, and Standard agents) demonstrates the effectiveness of our diversity preservation mechanism.
 
-These findings have important implications for the design of robust and reliable multi-agent systems. Our work contributes to the understanding of collective intelligence in AI systems and provides a practical framework for implementing cognitive heterogeneity. The results suggest that future AI systems should prioritize cognitive diversity as a fundamental design principle rather than relying on homogeneous architectures with superficial role differentiation.
+These findings have important implications for the design of robust and reliable multi-agent systems. Our work contributes to the understanding of collective intelligence in AI systems and provides a practical framework for implementing cognitive heterogeneity. The results suggest that future AI systems should prioritize cognitive diversity as a fundamental design principle.
 
 ## Acknowledgments
 
