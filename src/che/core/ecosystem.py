@@ -423,3 +423,9 @@ def create_homogeneous_population(
     
     logger.info(f"Created homogeneous population with {population_size} {agent_type} agents")
     return ecosystem
+
+
+# Backward compatibility alias
+def create_stratified_population(*args, **kwargs):
+    """Alias for create_heterogeneous_population for backward compatibility."""
+    return create_heterogeneous_population(*args, **kwargs)

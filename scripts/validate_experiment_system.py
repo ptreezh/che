@@ -17,7 +17,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.che.experimental.design import ExperimentalDesign, ExperimentalCondition
 from src.che.core.ecosystem import Ecosystem
-from src.che.core.task import TaskFactory
+from src.che.core.task import Task
 
 # 设置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -72,7 +72,8 @@ class ExperimentSystemValidator:
     def _validate_agent_module(self) -> bool:
         """验证Agent模块"""
         try:
-            from src.che.core.agent import Agent, AgentFactory
+            from src.che.core.agent import Agent
+            from src.che.agents.agent_factory import AgentFactory
 
             # 测试Agent创建
             agent = Agent(

@@ -93,6 +93,9 @@ Our experimental results demonstrate significant performance improvements with c
 
 The heterogeneous system significantly outperformed standard homogeneous baseline, with an extremely large effect size (d = 8.69), demonstrating the substantial benefit of cognitive heterogeneity in hallucination detection.
 
+**[Figure 1: Performance Comparison]** - See `figures/fig1_performance_comparison.png`
+**[Figure 4: Effect Size Analysis]** - See `figures/fig4_effect_size.png`
+
 ### 4.2 Cognitive Diversity Metrics
 
 We measure cognitive diversity using Shannon entropy with log2 normalization:
@@ -110,6 +113,9 @@ We measure cognitive diversity using Shannon entropy with log2 normalization:
 - Total agents analyzed: 360 (across 11 generations)
 
 The near-maximum entropy values (H ≈ 1.58, approaching H_max = 1.585) confirm that our evolutionary framework successfully maintains cognitive diversity across generations, with near-ideal balanced representation of all three cognitive types.
+
+**[Figure 2: Diversity Maintenance]** - See `figures/fig2_diversity_maintenance.png`
+**[Figure 3: Type Distribution]** - See `figures/fig3_type_distribution.png`
 
 ### 4.3 Evolutionary Dynamics
 

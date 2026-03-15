@@ -82,3 +82,27 @@ class Task:
             false_premise=data['false_premise'],
             task_id=data.get('task_id', str(uuid.uuid4()))
         )
+
+
+class TaskFactory:
+    """
+    Factory class for creating tasks.
+    Provides backward compatibility with older code.
+    """
+    
+    @staticmethod
+    def create_task(instruction: str, false_premise: str, task_id: Optional[str] = None) -> Task:
+        """Create a new task with the given parameters."""
+        if task_id:
+            return Task(instruction=instruction, false_premise=false_premise, task_id=task_id)
+        return Task(instruction=instruction, false_premise=false_premise)
+    
+    @staticmethod
+    def from_dict(data: Dict[str, Any]) -> Task:
+        """Create a task from a dictionary."""
+        return Task.from_dict(data)
+    
+    @staticmethod
+    def create_batch(tasks_data: list) -> list:
+        """Create multiple tasks from a list of dictionaries."""
+        return [TaskFactory.from_dict(t) for t in tasks_data]

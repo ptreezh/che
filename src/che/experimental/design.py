@@ -12,7 +12,7 @@ from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass, field
 import logging
 
-from ..core.ecosystem import create_stratified_population
+from ..core.ecosystem import create_heterogeneous_population as create_stratified_population
 
 logger = logging.getLogger(__name__)
 
