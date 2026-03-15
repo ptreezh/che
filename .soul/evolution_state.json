@@ -9,6 +9,8 @@
     "github_tag_v1.1.0": true,
     "github_tag_v1.2.0": true,
     "github_tag_v1.3.0": true,
+    "github_tag_v1.4.0": true,
+    "manuscript_updated_large_scale": true,
     "large_scale_validation": true,
     "total_agents_analyzed": 765,
     "statistical_power": ">0.99"
