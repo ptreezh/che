@@ -6,9 +6,9 @@
   "power": 1.0,
   "n_hetero": 410,
   "n_homo": 355,
-  "bootstrap_d": 0.9723191951799405,
-  "bootstrap_ci_lower": 0.846536255337966,
-  "bootstrap_ci_upper": 1.1000220094723707,
+  "bootstrap_d": 0.9718226836999451,
+  "bootstrap_ci_lower": 0.8468130452242411,
+  "bootstrap_ci_upper": 1.099908748233429,
   "mann_whitney_p": 1.554669104394523e-33,
   "quality_score": 5
 }
