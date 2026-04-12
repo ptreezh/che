@@ -39,6 +39,7 @@ class ModelCallRecord:
     raw_response: str
     response_length: int
     tokens_used: Optional[int] = None
+    generation: int = 0  # 添加generation属性
 
 @dataclass
 class AgentPerformanceRecord:
@@ -204,7 +205,8 @@ class EnhancedExperimentTracker:
                           input_prompt: str,
                           raw_response: str,
                           error_message: Optional[str] = None,
-                          tokens_used: Optional[int] = None) -> str:
+                          tokens_used: Optional[int] = None,
+                          generation: int = 0) -> str:
         """
         Record a model API call with detailed timing and success/failure information.
         
@@ -219,6 +221,7 @@ class EnhancedExperimentTracker:
             raw_response: The raw response from the model
             error_message: Error message if call failed
             tokens_used: Number of tokens used (if available)
+            generation: Current generation number (default: 0)
             
         Returns:
             Unique call ID for reference
@@ -240,11 +243,37 @@ class EnhancedExperimentTracker:
             input_prompt=input_prompt,
             raw_response=raw_response,
             response_length=len(raw_response),
-            tokens_used=tokens_used
+            tokens_used=tokens_used,
+            generation=generation
         )
         
         # Add to tracking collection
         self.model_calls.append(record)
+        
+        # CRITICAL FIX: Real-time save to JSONL file (immediate persistence)
+        try:
+            jsonl_path = self.experiment_dir / "model_calls.jsonl"
+            record_dict = {
+                "call_id": call_id,
+                "agent_id": agent_id,
+                "task_id": task_id,
+                "model_name": model_name,
+                "start_time": start_time,
+                "end_time": end_time,
+                "duration_seconds": duration,
+                "success": success,
+                "error_message": error_message,
+                "input_prompt": input_prompt,
+                "raw_response": raw_response,
+                "response_length": len(raw_response),
+                "tokens_used": tokens_used,
+                "generation": generation,
+                "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+            }
+            with open(jsonl_path, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(record_dict, ensure_ascii=False) + '\n')
+        except Exception as e:
+            logger.warning(f"Failed to save record to JSONL: {e}")
         
         # Log important information
         if not success:

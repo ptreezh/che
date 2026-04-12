@@ -228,3 +228,48 @@ paper_results/
 complete_paper_results/
 enhanced_cross_model_results/
 experiments_gemma3/
+
+# Experiment data - DO NOT PUBLISH
+TRUSTED_EXPERIMENT_DATA/
+experiment_data/
+experiment_data_*.zip
+experiments/*.zip
+results/*.json
+log/
+
+# Paper submission materials - DO NOT PUBLISH
+nature_submission/
+*supplementary*.pdf
+*supplementary*.html
+*supplementary*.md
+*SUPplementary*.txt
+upload_report_*.md
+
+# Validation reports - DO NOT PUBLISH
+DATA_VERIFICATION_REPORT.md
+FINAL_COMPREHENSIVE_CHECK_REPORT.md
+REVIEW_SUPPLEMENTARY_MATERIALS.md
+validation_report*.txt
+validation_report*.json
+check_data.py
+check_gemma3_data.py
+check_github_data.py
+check_multi_exp.py
+
+# SOUL project files - DO NOT PUBLISH
+SOUL_*.py
+SOUL_*.md
+SOUL_*.json
+
+# Automation scripts - DO NOT PUBLISH
+auto_monitor_experiment.py
+automate_github_upload.py
+monitor*.py
+monitor*.bat
+monitor*.sh
+start_background_experiment.*
+run_github_upload.bat
+
+# GitHub upload configs
+github_upload_config.json
+test_github_upload.py
